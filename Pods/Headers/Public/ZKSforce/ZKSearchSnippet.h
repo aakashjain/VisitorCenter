@@ -1,0 +1,1 @@
+../../../ZKSforce/zkSforce/ZKSearchSnippet.h

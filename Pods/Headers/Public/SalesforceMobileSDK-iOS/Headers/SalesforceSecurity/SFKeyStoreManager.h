@@ -1,0 +1,1 @@
+../../../../../SalesforceMobileSDK-iOS/libs/SalesforceSecurity/SalesforceSecurity/Classes/SFKeyStoreManager.h

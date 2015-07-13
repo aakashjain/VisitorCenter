@@ -1,0 +1,1 @@
+../../../../../SalesforceMobileSDK-iOS/libs/SalesforceOAuth/SalesforceOAuth/Classes/SFOAuthCoordinator+Internal.h

@@ -9,14 +9,44 @@
 import UIKit
 import CoreData
 
+let RemoteAccessConsumerKey = "3MVG9ZL0ppGP5UrAfHjVwH3cEhsWx26SlLgvi1jt3USM03ar9z1YQi7Yuj.kUxn7Z5Ajc6RpIwLLHkIvBUNYc"
+let OAuthRedirectURI = "sfdc://auth/success"
+let scopes = ["api", "web", "refresh_token", "offline_access"]
+let visitorUser = "visitor@abc.app"
+let visitorPass = "guest1234K8sopfoKUJOb9mb0DAcDM1oEd"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
+	override init() {
+		super.init()
+		SFLogger.setLogLevel(SFLogLevelDebug)
+		SalesforceSDKManager.sharedManager().connectedAppId = RemoteAccessConsumerKey
+		SalesforceSDKManager.sharedManager().connectedAppCallbackUri = OAuthRedirectURI
+		SalesforceSDKManager.sharedManager().authScopes = scopes
+		SalesforceSDKManager.sharedManager().authenticateAtLaunch = false
+		SalesforceSDKManager.sharedManager().useSnapshotView = false
+		SalesforceSDKManager.sharedManager().postLaunchAction = {
+			[unowned self] (launchActionList: SFSDKLaunchAction) in
+			let launchActionString = SalesforceSDKManager.launchActionsStringRepresentation(launchActionList)
+			self.log(SFLogLevelInfo, msg:"Post-launch: launch actions taken: \(launchActionString)");
+			SFAuthenticationManager.sharedManager().logoutAllUsers()
+		}
+		SalesforceSDKManager.sharedManager().launchErrorAction = {
+			[unowned self] (error: NSError?, launchActionList: SFSDKLaunchAction) in
+			if let actualError = error {
+				self.log(SFLogLevelError, msg:"Error during SDK launch: \(actualError.localizedDescription)")
+			} else {
+				self.log(SFLogLevelError, msg:"Unknown error during SDK launch.")
+			}
+			SalesforceSDKManager.sharedManager().launch()
+		}
+	}
 
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-		// Override point for customization after application launch.
+		SalesforceSDKManager.sharedManager().launch()
 		return true
 	}
 
@@ -49,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	lazy var applicationDocumentsDirectory: NSURL = {
 	    // The directory the application uses to store the Core Data store file. This code uses a directory named "Aakash.VisitorCenter" in the application's documents Application Support directory.
 	    let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-	    return urls[urls.count-1] as NSURL
+	    return urls[urls.count-1] as! NSURL
 	}()
 
 	lazy var managedObjectModel: NSManagedObjectModel = {

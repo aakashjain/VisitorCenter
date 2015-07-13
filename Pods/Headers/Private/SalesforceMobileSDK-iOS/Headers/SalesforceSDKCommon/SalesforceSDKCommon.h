@@ -1,0 +1,1 @@
+../../../../../SalesforceMobileSDK-iOS/libs/SalesforceSDKCommon/SalesforceSDKCommon/SalesforceSDKCommon.h

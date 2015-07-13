@@ -1,0 +1,1 @@
+../../../../../SalesforceMobileSDK-iOS/libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Identity/SFIdentityCoordinator+Internal.h

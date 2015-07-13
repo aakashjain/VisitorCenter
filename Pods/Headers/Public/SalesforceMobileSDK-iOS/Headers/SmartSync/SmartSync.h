@@ -1,0 +1,1 @@
+../../../../../SalesforceMobileSDK-iOS/libs/SmartSync/SmartSync/SmartSync.h

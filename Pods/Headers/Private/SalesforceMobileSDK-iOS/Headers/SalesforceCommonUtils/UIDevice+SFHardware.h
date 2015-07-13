@@ -1,0 +1,1 @@
+../../../../../SalesforceMobileSDK-iOS/external/ThirdPartyDependencies/SalesforceCommonUtils/Headers/SalesforceCommonUtils/UIDevice+SFHardware.h

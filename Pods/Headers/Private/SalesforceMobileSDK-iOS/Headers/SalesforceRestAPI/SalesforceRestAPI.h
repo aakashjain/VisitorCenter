@@ -1,0 +1,1 @@
+../../../../../SalesforceMobileSDK-iOS/libs/SalesforceRestAPI/SalesforceRestAPI/SalesforceRestAPI.h

@@ -1,0 +1,1 @@
+../../../ZKSforce/zkSforce/ZKDescribeAvailableQuickActionResult.h

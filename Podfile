@@ -1,0 +1,5 @@
+platform :ios, '8.2'
+xcodeproj 'VisitorCenter'
+pod 'ZKSforce', '~> 33.0'
+pod 'SalesforceMobileSDK-iOS', '~> 3.3'
+pod 'SignatureView', '~> 1.1'

@@ -1,0 +1,1 @@
+../../../../../SalesforceMobileSDK-iOS/libs/SalesforceSecurity/SalesforceSecurity/Classes/SFPasscodeManager.h

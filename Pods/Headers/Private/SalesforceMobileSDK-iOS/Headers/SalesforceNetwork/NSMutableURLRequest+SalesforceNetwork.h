@@ -1,0 +1,1 @@
+../../../../../SalesforceMobileSDK-iOS/libs/SalesforceNetwork/SalesforceNetwork/SalesforceNetwork/Classes/Additions/NSMutableURLRequest+SalesforceNetwork.h

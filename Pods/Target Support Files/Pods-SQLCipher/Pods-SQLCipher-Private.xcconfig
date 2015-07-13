@@ -1,0 +1,7 @@
+#include "Pods-SQLCipher.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/SQLCipher" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/SQLCipher" "${PODS_ROOT}/Headers/Public/SalesforceMobileSDK-iOS" "${PODS_ROOT}/Headers/Public/SalesforceMobileSDK-iOS/Headers/SalesforceCommonUtils" "${PODS_ROOT}/Headers/Public/SalesforceMobileSDK-iOS/Headers/SalesforceNetwork" "${PODS_ROOT}/Headers/Public/SalesforceMobileSDK-iOS/Headers/SalesforceOAuth" "${PODS_ROOT}/Headers/Public/SalesforceMobileSDK-iOS/Headers/SalesforceRestAPI" "${PODS_ROOT}/Headers/Public/SalesforceMobileSDK-iOS/Headers/SalesforceSDKCommon" "${PODS_ROOT}/Headers/Public/SalesforceMobileSDK-iOS/Headers/SalesforceSDKCore" "${PODS_ROOT}/Headers/Public/SalesforceMobileSDK-iOS/Headers/SalesforceSecurity" "${PODS_ROOT}/Headers/Public/SalesforceMobileSDK-iOS/Headers/SmartSync" "${PODS_ROOT}/Headers/Public/SignatureView" "${PODS_ROOT}/Headers/Public/ZKSforce"
+OTHER_CFLAGS = ${PODS_SQLCIPHER_OTHER_CFLAGS}
+OTHER_LDFLAGS = ${PODS_SQLCIPHER_OTHER_LDFLAGS} -ObjC
+PODS_ROOT = ${SRCROOT}
+SKIP_INSTALL = YES

@@ -7,13 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071BB52E1B4FE13F0018B9E3 /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071BB52D1B4FE13F0018B9E3 /* SwiftSpinner.swift */; };
+		071BB5301B4FE5D20018B9E3 /* EmployeeLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071BB52F1B4FE5D20018B9E3 /* EmployeeLoginController.swift */; };
+		0727E4601B53D5B400AED584 /* NavControllerBackButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0727E45F1B53D5B400AED584 /* NavControllerBackButtonExtension.swift */; };
+		073D57E91B529D9900D0A7E7 /* VisitorLoungeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D57E81B529D9900D0A7E7 /* VisitorLoungeController.swift */; };
+		0755710B1B512515000F0F55 /* VisitorForm2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755710A1B512515000F0F55 /* VisitorForm2Controller.swift */; };
+		0755710D1B51257C000F0F55 /* VisitorForm3Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755710C1B51257C000F0F55 /* VisitorForm3Controller.swift */; };
 		07574DAA1B4EB725000FE8CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07574DA91B4EB725000FE8CC /* AppDelegate.swift */; };
 		07574DAD1B4EB725000FE8CC /* VisitorCenter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07574DAB1B4EB725000FE8CC /* VisitorCenter.xcdatamodeld */; };
-		07574DAF1B4EB725000FE8CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07574DAE1B4EB725000FE8CC /* ViewController.swift */; };
+		07574DAF1B4EB725000FE8CC /* WelcomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07574DAE1B4EB725000FE8CC /* WelcomeScreenController.swift */; };
 		07574DB21B4EB725000FE8CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07574DB01B4EB725000FE8CC /* Main.storyboard */; };
 		07574DB41B4EB725000FE8CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07574DB31B4EB725000FE8CC /* Images.xcassets */; };
 		07574DB71B4EB725000FE8CC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07574DB51B4EB725000FE8CC /* LaunchScreen.xib */; };
 		07574DC31B4EB726000FE8CC /* VisitorCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07574DC21B4EB726000FE8CC /* VisitorCenterTests.swift */; };
+		07C5A2D41B4FFDC30082936B /* EmployeeVisitorTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5A2D31B4FFDC30082936B /* EmployeeVisitorTableController.swift */; };
+		07C5A2D61B504C6D0082936B /* EmployeeVisitorDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5A2D51B504C6D0082936B /* EmployeeVisitorDetailController.swift */; };
+		07DFAC251B51909B0087F60B /* VisitorForm4Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DFAC241B51909A0087F60B /* VisitorForm4Controller.swift */; };
+		07EC42881B4EDB1100F05104 /* VisitorForm1Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC42871B4EDB1100F05104 /* VisitorForm1Controller.swift */; };
+		22419E33A7717F75DE052FF1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6924FE1C7C50C2214A9D5325 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,17 +38,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		071BB52C1B4FE1280018B9E3 /* VisitorCenter-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VisitorCenter-Bridging-Header.h"; sourceTree = "<group>"; };
+		071BB52D1B4FE13F0018B9E3 /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
+		071BB52F1B4FE5D20018B9E3 /* EmployeeLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeLoginController.swift; sourceTree = "<group>"; };
+		0727E45F1B53D5B400AED584 /* NavControllerBackButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavControllerBackButtonExtension.swift; sourceTree = "<group>"; };
+		073D57E81B529D9900D0A7E7 /* VisitorLoungeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorLoungeController.swift; sourceTree = "<group>"; };
+		0755710A1B512515000F0F55 /* VisitorForm2Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorForm2Controller.swift; sourceTree = "<group>"; };
+		0755710C1B51257C000F0F55 /* VisitorForm3Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorForm3Controller.swift; sourceTree = "<group>"; };
 		07574DA41B4EB725000FE8CC /* VisitorCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisitorCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07574DA81B4EB725000FE8CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07574DA91B4EB725000FE8CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07574DAC1B4EB725000FE8CC /* VisitorCenter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VisitorCenter.xcdatamodel; sourceTree = "<group>"; };
-		07574DAE1B4EB725000FE8CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		07574DAE1B4EB725000FE8CC /* WelcomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenController.swift; sourceTree = "<group>"; };
 		07574DB11B4EB725000FE8CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		07574DB31B4EB725000FE8CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		07574DB61B4EB725000FE8CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		07574DBC1B4EB725000FE8CC /* VisitorCenterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisitorCenterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07574DC11B4EB725000FE8CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07574DC21B4EB726000FE8CC /* VisitorCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorCenterTests.swift; sourceTree = "<group>"; };
+		07C5A2D31B4FFDC30082936B /* EmployeeVisitorTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeVisitorTableController.swift; sourceTree = "<group>"; };
+		07C5A2D51B504C6D0082936B /* EmployeeVisitorDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeVisitorDetailController.swift; sourceTree = "<group>"; };
+		07DFAC241B51909A0087F60B /* VisitorForm4Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorForm4Controller.swift; sourceTree = "<group>"; };
+		07EC42871B4EDB1100F05104 /* VisitorForm1Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorForm1Controller.swift; sourceTree = "<group>"; };
+		6924FE1C7C50C2214A9D5325 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7797CC95845CD93E9BD022AF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		91ED7E31E021A2D73E01FD96 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22419E33A7717F75DE052FF1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +90,8 @@
 				07574DA61B4EB725000FE8CC /* VisitorCenter */,
 				07574DBF1B4EB725000FE8CC /* VisitorCenterTests */,
 				07574DA51B4EB725000FE8CC /* Products */,
+				34E95187F44638C6C0EF7833 /* Pods */,
+				251F39FA7F6EA916F9CC112B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,12 +107,23 @@
 		07574DA61B4EB725000FE8CC /* VisitorCenter */ = {
 			isa = PBXGroup;
 			children = (
-				07574DA91B4EB725000FE8CC /* AppDelegate.swift */,
-				07574DAE1B4EB725000FE8CC /* ViewController.swift */,
 				07574DB01B4EB725000FE8CC /* Main.storyboard */,
-				07574DB31B4EB725000FE8CC /* Images.xcassets */,
+				07574DA91B4EB725000FE8CC /* AppDelegate.swift */,
+				07574DAE1B4EB725000FE8CC /* WelcomeScreenController.swift */,
+				071BB52F1B4FE5D20018B9E3 /* EmployeeLoginController.swift */,
+				07C5A2D31B4FFDC30082936B /* EmployeeVisitorTableController.swift */,
+				07C5A2D51B504C6D0082936B /* EmployeeVisitorDetailController.swift */,
+				07EC42871B4EDB1100F05104 /* VisitorForm1Controller.swift */,
+				0755710A1B512515000F0F55 /* VisitorForm2Controller.swift */,
+				0755710C1B51257C000F0F55 /* VisitorForm3Controller.swift */,
+				07DFAC241B51909A0087F60B /* VisitorForm4Controller.swift */,
+				073D57E81B529D9900D0A7E7 /* VisitorLoungeController.swift */,
+				071BB52C1B4FE1280018B9E3 /* VisitorCenter-Bridging-Header.h */,
+				0727E45F1B53D5B400AED584 /* NavControllerBackButtonExtension.swift */,
+				071BB52D1B4FE13F0018B9E3 /* SwiftSpinner.swift */,
 				07574DB51B4EB725000FE8CC /* LaunchScreen.xib */,
 				07574DAB1B4EB725000FE8CC /* VisitorCenter.xcdatamodeld */,
+				07574DB31B4EB725000FE8CC /* Images.xcassets */,
 				07574DA71B4EB725000FE8CC /* Supporting Files */,
 			);
 			path = VisitorCenter;
@@ -115,6 +154,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		251F39FA7F6EA916F9CC112B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6924FE1C7C50C2214A9D5325 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		34E95187F44638C6C0EF7833 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				91ED7E31E021A2D73E01FD96 /* Pods.debug.xcconfig */,
+				7797CC95845CD93E9BD022AF /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,9 +178,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07574DC61B4EB726000FE8CC /* Build configuration list for PBXNativeTarget "VisitorCenter" */;
 			buildPhases = (
+				713034DBCDBCA245D2598C80 /* Check Pods Manifest.lock */,
 				07574DA01B4EB725000FE8CC /* Sources */,
 				07574DA11B4EB725000FE8CC /* Frameworks */,
 				07574DA21B4EB725000FE8CC /* Resources */,
+				2CE9729D82905A60901339B9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,14 +268,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2CE9729D82905A60901339B9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		713034DBCDBCA245D2598C80 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		07574DA01B4EB725000FE8CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07574DAF1B4EB725000FE8CC /* ViewController.swift in Sources */,
+				07EC42881B4EDB1100F05104 /* VisitorForm1Controller.swift in Sources */,
+				07574DAF1B4EB725000FE8CC /* WelcomeScreenController.swift in Sources */,
 				07574DAA1B4EB725000FE8CC /* AppDelegate.swift in Sources */,
+				0755710D1B51257C000F0F55 /* VisitorForm3Controller.swift in Sources */,
+				07C5A2D41B4FFDC30082936B /* EmployeeVisitorTableController.swift in Sources */,
 				07574DAD1B4EB725000FE8CC /* VisitorCenter.xcdatamodeld in Sources */,
+				071BB5301B4FE5D20018B9E3 /* EmployeeLoginController.swift in Sources */,
+				071BB52E1B4FE13F0018B9E3 /* SwiftSpinner.swift in Sources */,
+				07C5A2D61B504C6D0082936B /* EmployeeVisitorDetailController.swift in Sources */,
+				07DFAC251B51909B0087F60B /* VisitorForm4Controller.swift in Sources */,
+				073D57E91B529D9900D0A7E7 /* VisitorLoungeController.swift in Sources */,
+				0755710B1B512515000F0F55 /* VisitorForm2Controller.swift in Sources */,
+				0727E4601B53D5B400AED584 /* NavControllerBackButtonExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,21 +439,30 @@
 		};
 		07574DC71B4EB726000FE8CC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91ED7E31E021A2D73E01FD96 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				INFOPLIST_FILE = VisitorCenter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VisitorCenter/VisitorCenter-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		07574DC81B4EB726000FE8CC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7797CC95845CD93E9BD022AF /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				INFOPLIST_FILE = VisitorCenter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VisitorCenter/VisitorCenter-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -409,6 +519,7 @@
 				07574DC81B4EB726000FE8CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		07574DC91B4EB726000FE8CC /* Build configuration list for PBXNativeTarget "VisitorCenterTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +528,7 @@
 				07574DCB1B4EB726000FE8CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
