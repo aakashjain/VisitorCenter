@@ -8,57 +8,108 @@
 
 import UIKit
 
-class EmployeeVisitorDetailController: UIViewController, SFRestDelegate {
+class EmployeeVisitorDetailController: UIViewController {
 	
+	var visitorId = ""
+	var date = ""
+	var fname = ""
+	var mname = ""
+	var lname = ""
+	var org = ""
+	var phone = ""
+	var email = ""
 	
+	@IBOutlet var imageView: UIImageView!
+	@IBOutlet var nameLabel: UILabel!
+	@IBOutlet var dateLabel: UILabel!
+	@IBOutlet var orgLabel: UILabel!
+	@IBOutlet var phoneLabel: UILabel!
+	@IBOutlet var emailLabel: UILabel!
 	
-	var visitId = ""
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		SwiftSpinner.show("Loading...", animated: true)
-		let query: String = "SELECT Id, Visitor__r.FirstName__c, Visitor__r.MiddleName__c, Visitor__r.LastName__c, Visitor__r.Phone__c, Visitor__r.Email__c, Visitor__r.Organization__c, Visitor__r.Photo__c, Time__c, Date__c FROM Visit__c where Employee__r.Id = '\(visitId)'"
-		let request = SFRestAPI.sharedInstance().requestForQuery(query)
-		SFRestAPI.sharedInstance().send(request, delegate: self)
+		
+		let visitorQuery = "select MiddleName__c, Organization__c, Phone__c, Email__c from Visitor__c where Id = '\(self.visitorId)'"
+		let visitorRequest = SFRestAPI.sharedInstance().requestForQuery(visitorQuery)
+		
+		SFRestAPI.sharedInstance().sendRESTRequest(visitorRequest,
+			
+		failBlock: { (error) -> Void in
+			self.log(SFLogLevelError, msg: "Failed to fetch info: \(error)")
+			SwiftSpinner.show("Failed to fetch info!", animated: false).addTapHandler({
+				SwiftSpinner.hide()
+			}, subtitle: "Tap to close")
+		},
+			
+		completeBlock: { (response) -> Void in
+			let visitor = response.objectForKey("records") as! NSArray
+			self.log(SFLogLevelInfo, msg: "Fetched visitor record")
+			self.mname = visitor[0].objectForKey("MiddleName__c") as! String
+			self.org = visitor[0].objectForKey("Organization__c") as! String
+			self.phone = visitor[0].objectForKey("Phone__c") as! String
+			self.email = visitor[0].objectForKey("Email__c") as! String
+			dispatch_async(dispatch_get_main_queue(), {
+				self.nameLabel.text = "\(self.fname) \(self.mname) \(self.lname)"
+				self.dateLabel.text = self.date
+				self.orgLabel.text = "Organization: \(self.org)"
+				self.phoneLabel.text = "Phone: \(self.phone)"
+				self.emailLabel.text = "Email: \(self.email)"
+				self.phoneLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("makeCall:")))
+				self.phoneLabel.userInteractionEnabled = true
+				self.emailLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("sendEmail:")))
+				self.emailLabel.userInteractionEnabled = true
+				SwiftSpinner.hide()
+			})
+			
+		})
+		
+		let picInfoQuery = "select Body from Attachment where ParentId = '\(visitorId)' and Name like '%photo.jpeg'"
+		let picInfoRequest = SFRestAPI.sharedInstance().requestForQuery(picInfoQuery)
+		
+		SFRestAPI.sharedInstance().sendRESTRequest(picInfoRequest,
+			
+		failBlock: { (error) -> Void in
+			self.log(SFLogLevelError, msg: "Failed to fetch image: \(error)")
+			SwiftSpinner.show("Failed to fetch image!", animated: false).addTapHandler({
+				SwiftSpinner.hide()
+			}, subtitle: "Tap to close")
+		},
+			
+		completeBlock: { (response) -> Void in
+			
+			let picInfo = response.objectForKey("records") as! NSArray
+			let picUrl = picInfo[0].objectForKey("Body") as! String
+			let picRequest = requestForAttachment(picUrl)
+			
+			NSURLConnection.sendAsynchronousRequest(picRequest, queue: NSOperationQueue.new()) {
+				(response, data, error) -> Void in
+				
+				NSLog("File fetch response: \(response)")
+				dispatch_async(dispatch_get_main_queue(), {
+						self.imageView.image = UIImage(data: data, scale: 1.0)
+				})
+			}
+		})
+		
 	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 	
-	// MARK: - SFRestDelegate
-	
-	func request(request: SFRestRequest!, didLoadResponse dataResponse: AnyObject!) {
-		self.log(SFLogLevelInfo, msg: "Retrieved visit info")
-		dispatch_async(dispatch_get_main_queue(), { () -> Void in
-			
-			SwiftSpinner.hide()
-		})
+	func makeCall(recognizer: UITapGestureRecognizer) {
+		if UIDevice.currentDevice().model == "iPhone" {
+			UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(self.phone)")!)
+		} else {
+			var phoneAlert = UIAlertController(title: "Invalid", message: "Your device cannot make calls", preferredStyle: .Alert)
+			phoneAlert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+			presentViewController(phoneAlert, animated: true, completion: nil)
+		}
 	}
 	
-	func request(request: SFRestRequest!, didFailLoadWithError error: NSError!) {
-		self.log(SFLogLevelError, msg: "Failed to retrieve visit info: \(error)")
-		SwiftSpinner.hide()
+	func sendEmail(recognizer: UITapGestureRecognizer) {
+		UIApplication.sharedApplication().openURL(NSURL(string: "mailto://\(self.email)")!)
 	}
-	
-	func requestDidCancelLoad(request: SFRestRequest!) {
-		self.log(SFLogLevelError, msg: "Failed to retrieve visit info: Server cancelled request")
-		SwiftSpinner.hide()
-	}
-	
-	func requestDidTimeout(request: SFRestRequest!) {
-		self.log(SFLogLevelError, msg: "Failed to retrieve visit info: Request timed out")
-		SwiftSpinner.hide()
-	}
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

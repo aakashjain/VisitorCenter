@@ -11,7 +11,6 @@ import UIKit
 class EmployeeVisitorTableController: UITableViewController, SFRestDelegate {
 	
 	struct Record {
-		var id: String
 		var date: String
 		var vid: String
 		var fname: String
@@ -22,43 +21,20 @@ class EmployeeVisitorTableController: UITableViewController, SFRestDelegate {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.clearsSelectionOnViewWillAppear = false
 		self.sendRequest();
     }
 	
 	func sendRequest() {
 		SwiftSpinner.show("Loading...")
 		let userId: String = SFAuthenticationManager.sharedManager().idCoordinator.idData.userId
-		let query = "select Id, Date__c, Visitor__r.Id, Visitor__r.FirstName__c, Visitor__r.LastName__c from Visit__c where User__c = '\(userId)' and Status__c = 'Checkedin' order by Date__c asc"
+		let query = "select Date__c, Visitor__r.Id, Visitor__r.FirstName__c, Visitor__r.LastName__c from Visit__c where User__c = '\(userId)' and Status__c = 'Checkedin' order by Date__c asc"
 		let request: SFRestRequest = SFRestAPI.sharedInstance().requestForQuery(query)
 		SFRestAPI.sharedInstance().send(request, delegate: self)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
-		self.navigationController?.viewControllers.removeAtIndex(1) //remove auth screen from nav controller
-		self.navigationController?.setNavigationBarHidden(false, animated: true)
 		UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
-	}
-
-	override func viewWillDisappear(animated: Bool) {
-		if self.isMovingFromParentViewController() {
-			SFAuthenticationManager.sharedManager().logoutAllUsers()
-		}
-		super.viewWillDisappear(animated)
-	}
-	
-	override func navigationShouldPopOnBackButton() -> Bool {
-		var logout = true
-		var logoutAlert = UIAlertController(title: "Logout?", message: "This will log you out. Proceed?", preferredStyle: .Alert)
-		logoutAlert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
-			logout = true
-		}))
-		logoutAlert.addAction(UIAlertAction(title: "No", style: .Default, handler: { (action) -> Void in
-			logout = false
-		}))
-		self.presentViewController(logoutAlert, animated: true, completion: nil)
-		return logout
 	}
 	
     override func didReceiveMemoryWarning() {
@@ -80,14 +56,10 @@ class EmployeeVisitorTableController: UITableViewController, SFRestDelegate {
 		let row = rows[indexPath.row]
 		cell.textLabel?.text = row.date
 		cell.textLabel?.textColor = UIColor.whiteColor()
-		cell.detailTextLabel?.text = "\(row.fname) \(row.lname))"
+		cell.detailTextLabel?.text = "\(row.fname) \(row.lname)"
 		cell.detailTextLabel?.textColor = UIColor.whiteColor()
         return cell
     }
-	
-	override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-		
-	}
 	
 	// MARK: - SFRestDelegate
 	
@@ -101,7 +73,6 @@ class EmployeeVisitorTableController: UITableViewController, SFRestDelegate {
 			let dateNS = SFDateUtil.SOQLDateTimeStringToDate(record.objectForKey("Date__c") as! String)
 			let date = NSDateFormatter.localizedStringFromDate(dateNS, dateStyle: .ShortStyle, timeStyle: .ShortStyle)
 			self.rows.append(Record(
-				id: record.objectForKey("Id") as! String,
 				date: date,
 				vid: visitor.objectForKey("Id") as! String,
 				fname: visitor.objectForKey("FirstName__c") as! String,
@@ -135,16 +106,30 @@ class EmployeeVisitorTableController: UITableViewController, SFRestDelegate {
 			SwiftSpinner.hide()
 		})
 	}
+	
+	@IBAction func logout(sender: AnyObject) {
+		var logoutAlert = UIAlertController(title: "Logout", message: "Are you sure?", preferredStyle: .Alert)
+		logoutAlert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
+			SFAuthenticationManager.sharedManager().logoutAllUsers()
+			self.performSegueWithIdentifier("EmployeeLogoutUnwind", sender: self)
+		}))
+		logoutAlert.addAction(UIAlertAction(title: "No", style: .Default, handler: nil))
+		self.presentViewController(logoutAlert, animated: true, completion: nil)
+	}
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		super.prepareForSegue(segue, sender: sender)
 		if segue.identifier == "EmployeeVisitorDetailSegue" {
 			if let destination = segue.destinationViewController as? EmployeeVisitorDetailController {
 				if let indexPath = self.tableView.indexPathForCell(sender as! UITableViewCell) {
-					
+					let record = rows[indexPath.row]
+					destination.date = record.date
+					destination.visitorId = record.vid
+					destination.fname = record.fname
+					destination.lname = record.lname
 				}
 			}
 		}
+		super.prepareForSegue(segue, sender: sender)
     }
 	
 }

@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070517BA1B540D08000B41B9 /* VisitorForm1Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070517B91B540D08000B41B9 /* VisitorForm1Controller.swift */; };
+		070517BE1B540D6C000B41B9 /* EmployeeLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070517BB1B540D6C000B41B9 /* EmployeeLoginController.swift */; };
+		070517BF1B540D6C000B41B9 /* EmployeeVisitorDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070517BC1B540D6C000B41B9 /* EmployeeVisitorDetailController.swift */; };
+		070517C01B540D6C000B41B9 /* EmployeeVisitorTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070517BD1B540D6C000B41B9 /* EmployeeVisitorTableController.swift */; };
+		070517C21B54164F000B41B9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 070517C11B54164F000B41B9 /* MessageUI.framework */; };
+		070517C41B542380000B41B9 /* SFAttachmentHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070517C31B542380000B41B9 /* SFAttachmentHelpers.swift */; };
 		071BB52E1B4FE13F0018B9E3 /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071BB52D1B4FE13F0018B9E3 /* SwiftSpinner.swift */; };
-		071BB5301B4FE5D20018B9E3 /* EmployeeLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071BB52F1B4FE5D20018B9E3 /* EmployeeLoginController.swift */; };
-		0727E4601B53D5B400AED584 /* NavControllerBackButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0727E45F1B53D5B400AED584 /* NavControllerBackButtonExtension.swift */; };
 		073D57E91B529D9900D0A7E7 /* VisitorLoungeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D57E81B529D9900D0A7E7 /* VisitorLoungeController.swift */; };
 		0755710B1B512515000F0F55 /* VisitorForm2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755710A1B512515000F0F55 /* VisitorForm2Controller.swift */; };
 		0755710D1B51257C000F0F55 /* VisitorForm3Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755710C1B51257C000F0F55 /* VisitorForm3Controller.swift */; };
@@ -20,10 +24,7 @@
 		07574DB41B4EB725000FE8CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07574DB31B4EB725000FE8CC /* Images.xcassets */; };
 		07574DB71B4EB725000FE8CC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07574DB51B4EB725000FE8CC /* LaunchScreen.xib */; };
 		07574DC31B4EB726000FE8CC /* VisitorCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07574DC21B4EB726000FE8CC /* VisitorCenterTests.swift */; };
-		07C5A2D41B4FFDC30082936B /* EmployeeVisitorTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5A2D31B4FFDC30082936B /* EmployeeVisitorTableController.swift */; };
-		07C5A2D61B504C6D0082936B /* EmployeeVisitorDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5A2D51B504C6D0082936B /* EmployeeVisitorDetailController.swift */; };
 		07DFAC251B51909B0087F60B /* VisitorForm4Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DFAC241B51909A0087F60B /* VisitorForm4Controller.swift */; };
-		07EC42881B4EDB1100F05104 /* VisitorForm1Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC42871B4EDB1100F05104 /* VisitorForm1Controller.swift */; };
 		22419E33A7717F75DE052FF1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6924FE1C7C50C2214A9D5325 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -38,10 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		070517B91B540D08000B41B9 /* VisitorForm1Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorForm1Controller.swift; sourceTree = "<group>"; };
+		070517BB1B540D6C000B41B9 /* EmployeeLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeLoginController.swift; sourceTree = "<group>"; };
+		070517BC1B540D6C000B41B9 /* EmployeeVisitorDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeVisitorDetailController.swift; sourceTree = "<group>"; };
+		070517BD1B540D6C000B41B9 /* EmployeeVisitorTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeVisitorTableController.swift; sourceTree = "<group>"; };
+		070517C11B54164F000B41B9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		070517C31B542380000B41B9 /* SFAttachmentHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFAttachmentHelpers.swift; sourceTree = "<group>"; };
 		071BB52C1B4FE1280018B9E3 /* VisitorCenter-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VisitorCenter-Bridging-Header.h"; sourceTree = "<group>"; };
 		071BB52D1B4FE13F0018B9E3 /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
-		071BB52F1B4FE5D20018B9E3 /* EmployeeLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeLoginController.swift; sourceTree = "<group>"; };
-		0727E45F1B53D5B400AED584 /* NavControllerBackButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavControllerBackButtonExtension.swift; sourceTree = "<group>"; };
 		073D57E81B529D9900D0A7E7 /* VisitorLoungeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorLoungeController.swift; sourceTree = "<group>"; };
 		0755710A1B512515000F0F55 /* VisitorForm2Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorForm2Controller.swift; sourceTree = "<group>"; };
 		0755710C1B51257C000F0F55 /* VisitorForm3Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorForm3Controller.swift; sourceTree = "<group>"; };
@@ -56,10 +61,7 @@
 		07574DBC1B4EB725000FE8CC /* VisitorCenterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisitorCenterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07574DC11B4EB725000FE8CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07574DC21B4EB726000FE8CC /* VisitorCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorCenterTests.swift; sourceTree = "<group>"; };
-		07C5A2D31B4FFDC30082936B /* EmployeeVisitorTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeVisitorTableController.swift; sourceTree = "<group>"; };
-		07C5A2D51B504C6D0082936B /* EmployeeVisitorDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeVisitorDetailController.swift; sourceTree = "<group>"; };
 		07DFAC241B51909A0087F60B /* VisitorForm4Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorForm4Controller.swift; sourceTree = "<group>"; };
-		07EC42871B4EDB1100F05104 /* VisitorForm1Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorForm1Controller.swift; sourceTree = "<group>"; };
 		6924FE1C7C50C2214A9D5325 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7797CC95845CD93E9BD022AF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		91ED7E31E021A2D73E01FD96 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				070517C21B54164F000B41B9 /* MessageUI.framework in Frameworks */,
 				22419E33A7717F75DE052FF1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,16 +113,16 @@
 				07574DB01B4EB725000FE8CC /* Main.storyboard */,
 				07574DA91B4EB725000FE8CC /* AppDelegate.swift */,
 				07574DAE1B4EB725000FE8CC /* WelcomeScreenController.swift */,
-				071BB52F1B4FE5D20018B9E3 /* EmployeeLoginController.swift */,
-				07C5A2D31B4FFDC30082936B /* EmployeeVisitorTableController.swift */,
-				07C5A2D51B504C6D0082936B /* EmployeeVisitorDetailController.swift */,
-				07EC42871B4EDB1100F05104 /* VisitorForm1Controller.swift */,
+				070517BB1B540D6C000B41B9 /* EmployeeLoginController.swift */,
+				070517BD1B540D6C000B41B9 /* EmployeeVisitorTableController.swift */,
+				070517BC1B540D6C000B41B9 /* EmployeeVisitorDetailController.swift */,
+				070517B91B540D08000B41B9 /* VisitorForm1Controller.swift */,
 				0755710A1B512515000F0F55 /* VisitorForm2Controller.swift */,
 				0755710C1B51257C000F0F55 /* VisitorForm3Controller.swift */,
 				07DFAC241B51909A0087F60B /* VisitorForm4Controller.swift */,
 				073D57E81B529D9900D0A7E7 /* VisitorLoungeController.swift */,
 				071BB52C1B4FE1280018B9E3 /* VisitorCenter-Bridging-Header.h */,
-				0727E45F1B53D5B400AED584 /* NavControllerBackButtonExtension.swift */,
+				070517C31B542380000B41B9 /* SFAttachmentHelpers.swift */,
 				071BB52D1B4FE13F0018B9E3 /* SwiftSpinner.swift */,
 				07574DB51B4EB725000FE8CC /* LaunchScreen.xib */,
 				07574DAB1B4EB725000FE8CC /* VisitorCenter.xcdatamodeld */,
@@ -157,6 +160,7 @@
 		251F39FA7F6EA916F9CC112B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				070517C11B54164F000B41B9 /* MessageUI.framework */,
 				6924FE1C7C50C2214A9D5325 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -306,19 +310,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07EC42881B4EDB1100F05104 /* VisitorForm1Controller.swift in Sources */,
 				07574DAF1B4EB725000FE8CC /* WelcomeScreenController.swift in Sources */,
+				070517BF1B540D6C000B41B9 /* EmployeeVisitorDetailController.swift in Sources */,
+				070517BE1B540D6C000B41B9 /* EmployeeLoginController.swift in Sources */,
+				070517BA1B540D08000B41B9 /* VisitorForm1Controller.swift in Sources */,
 				07574DAA1B4EB725000FE8CC /* AppDelegate.swift in Sources */,
 				0755710D1B51257C000F0F55 /* VisitorForm3Controller.swift in Sources */,
-				07C5A2D41B4FFDC30082936B /* EmployeeVisitorTableController.swift in Sources */,
 				07574DAD1B4EB725000FE8CC /* VisitorCenter.xcdatamodeld in Sources */,
-				071BB5301B4FE5D20018B9E3 /* EmployeeLoginController.swift in Sources */,
+				070517C01B540D6C000B41B9 /* EmployeeVisitorTableController.swift in Sources */,
 				071BB52E1B4FE13F0018B9E3 /* SwiftSpinner.swift in Sources */,
-				07C5A2D61B504C6D0082936B /* EmployeeVisitorDetailController.swift in Sources */,
+				070517C41B542380000B41B9 /* SFAttachmentHelpers.swift in Sources */,
 				07DFAC251B51909B0087F60B /* VisitorForm4Controller.swift in Sources */,
 				073D57E91B529D9900D0A7E7 /* VisitorLoungeController.swift in Sources */,
 				0755710B1B512515000F0F55 /* VisitorForm2Controller.swift in Sources */,
-				0727E4601B53D5B400AED584 /* NavControllerBackButtonExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

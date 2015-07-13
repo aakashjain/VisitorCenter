@@ -11,6 +11,7 @@ import UIKit
 class EmployeeLoginController: UIViewController {
 
 	@IBOutlet var messageLabel: UILabel!
+	@IBOutlet var button: UIButton!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,8 @@ class EmployeeLoginController: UIViewController {
 			failure: { (info, err) -> Void in
 				self.log(SFLogLevelError, msg: "Failed login: ERR: \(err) INFO: \(info)")
 				self.messageLabel.text = "Failed!"
-				self.navigationController?.setNavigationBarHidden(false, animated: true)
+				self.button.enabled = true
+				self.button.hidden = false
 				UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
 			}
 		)
