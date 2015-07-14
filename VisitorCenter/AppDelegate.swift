@@ -12,8 +12,12 @@ import CoreData
 let RemoteAccessConsumerKey = "3MVG9ZL0ppGP5UrAfHjVwH3cEhsWx26SlLgvi1jt3USM03ar9z1YQi7Yuj.kUxn7Z5Ajc6RpIwLLHkIvBUNYc"
 let OAuthRedirectURI = "sfdc://auth/success"
 let scopes = ["api", "web", "refresh_token", "offline_access"]
+
 let visitorUser = "visitor@abc.app"
 let visitorPass = "guest1234K8sopfoKUJOb9mb0DAcDM1oEd"
+
+let buttonColor = UIColor(red: 236/255.0, green: 241/255.0, blue: 102/255.0, alpha: 1.0)
+let backColor = UIColor(red: 52/255.0, green: 52/255.0, blue: 62/255.0, alpha: 1.0)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

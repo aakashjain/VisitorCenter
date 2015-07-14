@@ -11,7 +11,7 @@ import UIKit
 class VisitorForm4Controller: UIViewController {
 	
 	override func viewDidLoad() {
-        super.viewDidLoad()
+		super.viewDidLoad()
 		
 		var sigView = SignatureView()
 		sigView.tag = 1337

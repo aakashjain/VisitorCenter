@@ -19,6 +19,7 @@ class EmployeeLoginController: UIViewController {
 		SFAuthenticationManager.sharedManager().loginWithCompletion({
 			(info) -> Void in
 				self.log(SFLogLevelInfo, msg: "Completed login: \(info)")
+				self.log(SFLogLevelInfo, msg: SFAuthenticationManager.sharedManager().idCoordinator.idData.userType)
 				self.performSegueWithIdentifier("EmployeeLoggedinSegue", sender: self)
 			},
 			failure: { (info, err) -> Void in

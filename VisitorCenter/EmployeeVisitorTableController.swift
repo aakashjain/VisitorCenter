@@ -22,7 +22,8 @@ class EmployeeVisitorTableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.refreshControl = UIRefreshControl()
-		self.refreshControl!.backgroundColor = UIColor(red: 255.0, green: 255.0, blue: 102.0, alpha: 1.0)
+		self.refreshControl!.backgroundColor = UIColor(red: 51/255.0, green: 59/255.0, blue: 61/255.0, alpha: 1.0)
+		self.refreshControl!.tintColor = UIColor(red: 51/255.0, green: 59/255.0, blue: 61/255.0, alpha: 1.0)
 		self.refreshControl!.addTarget(self, action: "sendRequest", forControlEvents: .ValueChanged)
 		self.refreshControl!.beginRefreshing()
 		self.sendRequest()
@@ -102,7 +103,7 @@ class EmployeeVisitorTableController: UITableViewController {
 		cell.textLabel?.text = row.date
 		cell.textLabel?.textColor = UIColor.whiteColor()
 		cell.detailTextLabel?.text = "\(row.fname) \(row.lname)"
-		cell.detailTextLabel?.textColor = UIColor.whiteColor()
+		cell.detailTextLabel?.textColor = buttonColor
         return cell
     }
 	
