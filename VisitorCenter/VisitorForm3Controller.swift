@@ -135,7 +135,7 @@ class VisitorForm3Controller: UIViewController, UIImagePickerControllerDelegate,
 	
 	// MARK: - UIPickerView
 	
-	var pickerContent = ["Voter Card", "Driver License", "Passport", "Student ID"]
+	var pickerContent = ["Voter Card", "Driver License", "Passport", "PAN", "SSN"]
 	
 	func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
 		return 1
