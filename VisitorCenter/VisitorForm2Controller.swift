@@ -27,7 +27,7 @@ class VisitorForm2Controller: UITableViewController {
 				
 				let client = ZKSforceClient()
 				client.login(visitorUser, password: visitorPass)
-				let results: ZKQueryResult = client.query("SELECT Id, Name, Department FROM User WHERE IsEmployee__c = true ORDER BY Name ASC, Department ASC")
+				let results: ZKQueryResult = client.query("SELECT Id, Name, Department FROM User WHERE VisitorCenterApp_IsEmployee__c = true ORDER BY Name ASC, Department ASC")
 				client.logout()
 				
 				dispatch_async(dispatch_get_main_queue(), {
