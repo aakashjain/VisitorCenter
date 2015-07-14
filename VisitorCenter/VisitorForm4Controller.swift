@@ -65,39 +65,34 @@ class VisitorForm4Controller: UIViewController {
 			visitor.setFieldValue(VisitorForm1Controller.organization, field: "Organization__c")
 			visitor.setFieldValue(VisitorForm3Controller.idType, field: "IDType__c")
 			visitor.setFieldValue(VisitorForm3Controller.idNumber, field: "IDNumber__c")
-			let visitorUpsertResult = client.upsert("IDNumber__c", sObjects: [visitor]) as! [ZKUpsertResult]
-			var visitorId = visitorUpsertResult[0].id
+			visitor.setFieldValue(VisitorForm1Controller.date, field: "Date__c")
+			visitor.setFieldValue("Pending", field: "Status__c")
+			visitor.setFieldValue(VisitorForm2Controller.empId, field: "User__c")
+			let visitorSaveResult = client.create([visitor]) as! [ZKSaveResult]
+			self.visitorId = visitorSaveResult[0].id
 			
 			let sigView = self.view.viewWithTag(1337) as! SignatureView
 			let sig64 = sigView.signatureData().base64EncodedStringWithOptions(nil)
 			var sigAttach = ZKSObject(type: "Attachment")
-			sigAttach.setFieldValue(visitorId, field: "ParentId")
-			sigAttach.setFieldValue("\(visitorId)signature.png", field: "Name")
+			sigAttach.setFieldValue(self.visitorId, field: "ParentId")
+			sigAttach.setFieldValue("\(self.visitorId)signature.png", field: "Name")
 			sigAttach.setFieldValue(sig64, field: "Body")
 			
 			let photoImg = self.resizeImage(VisitorForm3Controller.photo)
 			let photo64 = UIImageJPEGRepresentation(photoImg, 0.8).base64EncodedStringWithOptions(nil)
 			var photoAttach = ZKSObject(type: "Attachment")
-			photoAttach.setFieldValue(visitorId, field: "ParentId")
-			photoAttach.setFieldValue("\(visitorId)photo.jpeg", field: "Name")
+			photoAttach.setFieldValue(self.visitorId, field: "ParentId")
+			photoAttach.setFieldValue("\(self.visitorId)photo.jpeg", field: "Name")
 			photoAttach.setFieldValue(photo64, field: "Body")
 			
 			let idImg = self.resizeImage(VisitorForm3Controller.idPhoto)
 			let id64 = UIImageJPEGRepresentation(idImg, 0.8).base64EncodedStringWithOptions(nil)
 			var idAttach = ZKSObject(type: "Attachment")
-			idAttach.setFieldValue(visitorId, field: "ParentId")
-			idAttach.setFieldValue("\(visitorId)id.jpeg", field: "Name")
+			idAttach.setFieldValue(self.visitorId, field: "ParentId")
+			idAttach.setFieldValue("\(self.visitorId)id.jpeg", field: "Name")
 			idAttach.setFieldValue(id64, field: "Body")
 				
-			client.upsert("Name", sObjects: [sigAttach, photoAttach, idAttach])
-			
-			var visit = ZKSObject(type: "Visit__c")
-			visit.setFieldValue(VisitorForm1Controller.date, field: "Date__c")
-			visit.setFieldValue("Pending", field: "Status__c")
-			visit.setFieldValue(visitorId, field: "Visitor__c")
-			visit.setFieldValue(VisitorForm2Controller.empId, field: "User__c")
-			let visitResult = client.create([visit]) as! [ZKSaveResult]
-			self.visitId = visitResult[0].id
+			client.create([sigAttach, photoAttach, idAttach])
 			
 			client.logout()
 			
@@ -108,11 +103,11 @@ class VisitorForm4Controller: UIViewController {
 		})
 	}
 	
-	var visitId = ""
+	var visitorId = ""
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if let lounge = segue.destinationViewController as? VisitorLoungeController {
-			lounge.visitId = self.visitId
+			lounge.visitorId = self.visitorId
 		}
 	}
 	

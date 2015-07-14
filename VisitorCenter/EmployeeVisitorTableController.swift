@@ -10,14 +10,7 @@ import UIKit
 
 class EmployeeVisitorTableController: UITableViewController {
 	
-	struct Record {
-		var date: String
-		var vid: String
-		var fname: String
-		var lname: String
-	}
-	
-	var rows = [Record]()
+	var rows = [EmployeeVisitorRecord]()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +24,7 @@ class EmployeeVisitorTableController: UITableViewController {
 	
 	func sendRequest() {
 		let userId: String = SFAuthenticationManager.sharedManager().idCoordinator.idData.userId
-		let query = "select Date__c, Visitor__r.Id, Visitor__r.FirstName__c, Visitor__r.LastName__c from Visit__c where User__c = '\(userId)' and Status__c = 'Checkedin' order by Date__c asc"
+		let query = "select Id, Date__c, FirstName__c, MiddleName__c, LastName__c, Organization__c, Phone__c, Email__c from Visitor__c where User__c = '\(userId)' and Status__c = 'Checkedin' order by Date__c asc"
 		let request: SFRestRequest = SFRestAPI.sharedInstance().requestForQuery(query)
 		SFRestAPI.sharedInstance().sendRESTRequest(request,
 		failBlock: { (error) -> Void in
@@ -46,14 +39,17 @@ class EmployeeVisitorTableController: UITableViewController {
 			self.rows.removeAll(keepCapacity: false)
 			
 			for record in records {
-				let visitor: AnyObject = record.objectForKey("Visitor__r")!
 				let dateNS = SFDateUtil.SOQLDateTimeStringToDate(record.objectForKey("Date__c") as! String)
 				let date = NSDateFormatter.localizedStringFromDate(dateNS, dateStyle: .ShortStyle, timeStyle: .ShortStyle)
-				self.rows.append(Record(
+				self.rows.append(EmployeeVisitorRecord(
 					date: date,
-					vid: visitor.objectForKey("Id") as! String,
-					fname: visitor.objectForKey("FirstName__c") as! String,
-					lname: visitor.objectForKey("LastName__c") as! String
+					vid: record.objectForKey("Id") as! String,
+					fname: record.objectForKey("FirstName__c") as! String,
+					mname: record.objectForKey("MiddleName__c") as! String,
+					lname: record.objectForKey("LastName__c") as! String,
+					phone: record.objectForKey("Phone__c") as! String,
+					email: record.objectForKey("Phone__c") as! String,
+					org: record.objectForKey("Organization__c") as! String
 				))
 			}
 			
@@ -121,11 +117,7 @@ class EmployeeVisitorTableController: UITableViewController {
 		if segue.identifier == "EmployeeVisitorDetailSegue" {
 			if let destination = segue.destinationViewController as? EmployeeVisitorDetailController {
 				if let indexPath = self.tableView.indexPathForCell(sender as! UITableViewCell) {
-					let record = rows[indexPath.row]
-					destination.date = record.date
-					destination.visitorId = record.vid
-					destination.fname = record.fname
-					destination.lname = record.lname
+					destination.record = rows[indexPath.row]
 				}
 			}
 		}

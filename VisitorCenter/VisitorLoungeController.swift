@@ -12,7 +12,7 @@ class VisitorLoungeController: UIViewController {
 	
 	var state = "Pending"
 	var client = ZKSforceClient()
-	var visitId = ""
+	var visitorId = ""
 
 	@IBOutlet var message: UILabel!
 	@IBOutlet var button: UIButton!
@@ -24,7 +24,7 @@ class VisitorLoungeController: UIViewController {
 			SwiftSpinner.showWithDelay(2.0, title: "Checking...")
 			dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), {
 				
-				let result = self.client.query("select Status__c from Visit__c where Id = '\(self.visitId)'") as ZKQueryResult
+				let result = self.client.query("select Status__c from Visitor__c where Id = '\(self.visitorId)'") as ZKQueryResult
 				self.state = result.records()[0].fieldValue("Status__c") as! String
 				
 				dispatch_async(dispatch_get_main_queue(), {
@@ -55,9 +55,9 @@ class VisitorLoungeController: UIViewController {
 			SwiftSpinner.showWithDelay(2.0, title: "Loading...")
 			dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), {
 			
-				var visit = ZKSObject(type: "Visit__c")
+				var visit = ZKSObject(type: "Visitor__c")
 				visit.setFieldValue("Checkedout", field: "Status__c")
-				visit.setFieldValue(self.visitId, field: "Id")
+				visit.setFieldValue(self.visitorId, field: "Id")
 				self.client.update([visit])
 				
 				dispatch_async(dispatch_get_main_queue(), {
