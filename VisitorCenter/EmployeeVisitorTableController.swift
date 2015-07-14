@@ -10,7 +10,7 @@ import UIKit
 
 class EmployeeVisitorTableController: UITableViewController {
 	
-	var rows = [EmployeeVisitorRecord]()
+	var rows = [Visitor]()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,7 @@ class EmployeeVisitorTableController: UITableViewController {
 			for record in records {
 				let dateNS = SFDateUtil.SOQLDateTimeStringToDate(record.objectForKey("Date__c") as! String)
 				let date = NSDateFormatter.localizedStringFromDate(dateNS, dateStyle: .ShortStyle, timeStyle: .ShortStyle)
-				self.rows.append(EmployeeVisitorRecord(
+				self.rows.append(Visitor(
 					date: date,
 					vid: record.objectForKey("Id") as! String,
 					fname: record.objectForKey("FirstName__c") as! String,

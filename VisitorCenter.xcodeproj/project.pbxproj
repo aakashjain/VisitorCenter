@@ -13,8 +13,9 @@
 		070517C01B540D6C000B41B9 /* EmployeeVisitorTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070517BD1B540D6C000B41B9 /* EmployeeVisitorTableController.swift */; };
 		070517C21B54164F000B41B9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 070517C11B54164F000B41B9 /* MessageUI.framework */; };
 		070517C41B542380000B41B9 /* SFAttachmentHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070517C31B542380000B41B9 /* SFAttachmentHelpers.swift */; };
+		07079B781B5589B700E18E1B /* AdminPendingTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07079B771B5589B700E18E1B /* AdminPendingTableController.swift */; };
 		071BB52E1B4FE13F0018B9E3 /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071BB52D1B4FE13F0018B9E3 /* SwiftSpinner.swift */; };
-		0728661A1B55454100E8CEB1 /* EmployeeVisitorRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072866191B55454000E8CEB1 /* EmployeeVisitorRecord.swift */; };
+		0728661A1B55454100E8CEB1 /* Visitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072866191B55454000E8CEB1 /* Visitor.swift */; };
 		0732CAD31B55009700D179DF /* AdminLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732CAD21B55009700D179DF /* AdminLoginController.swift */; };
 		073D57E91B529D9900D0A7E7 /* VisitorLoungeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D57E81B529D9900D0A7E7 /* VisitorLoungeController.swift */; };
 		0755710B1B512515000F0F55 /* VisitorForm2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755710A1B512515000F0F55 /* VisitorForm2Controller.swift */; };
@@ -47,9 +48,10 @@
 		070517BD1B540D6C000B41B9 /* EmployeeVisitorTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeVisitorTableController.swift; sourceTree = "<group>"; };
 		070517C11B54164F000B41B9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		070517C31B542380000B41B9 /* SFAttachmentHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFAttachmentHelpers.swift; sourceTree = "<group>"; };
+		07079B771B5589B700E18E1B /* AdminPendingTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminPendingTableController.swift; sourceTree = "<group>"; };
 		071BB52C1B4FE1280018B9E3 /* VisitorCenter-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VisitorCenter-Bridging-Header.h"; sourceTree = "<group>"; };
 		071BB52D1B4FE13F0018B9E3 /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
-		072866191B55454000E8CEB1 /* EmployeeVisitorRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeVisitorRecord.swift; sourceTree = "<group>"; };
+		072866191B55454000E8CEB1 /* Visitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visitor.swift; sourceTree = "<group>"; };
 		0732CAD21B55009700D179DF /* AdminLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminLoginController.swift; sourceTree = "<group>"; };
 		073D57E81B529D9900D0A7E7 /* VisitorLoungeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorLoungeController.swift; sourceTree = "<group>"; };
 		0755710A1B512515000F0F55 /* VisitorForm2Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorForm2Controller.swift; sourceTree = "<group>"; };
@@ -118,10 +120,11 @@
 				07574DA91B4EB725000FE8CC /* AppDelegate.swift */,
 				07574DAE1B4EB725000FE8CC /* WelcomeScreenController.swift */,
 				0732CAD21B55009700D179DF /* AdminLoginController.swift */,
+				07079B771B5589B700E18E1B /* AdminPendingTableController.swift */,
 				070517BB1B540D6C000B41B9 /* EmployeeLoginController.swift */,
 				070517BD1B540D6C000B41B9 /* EmployeeVisitorTableController.swift */,
 				070517BC1B540D6C000B41B9 /* EmployeeVisitorDetailController.swift */,
-				072866191B55454000E8CEB1 /* EmployeeVisitorRecord.swift */,
+				072866191B55454000E8CEB1 /* Visitor.swift */,
 				070517B91B540D08000B41B9 /* VisitorForm1Controller.swift */,
 				0755710A1B512515000F0F55 /* VisitorForm2Controller.swift */,
 				0755710C1B51257C000F0F55 /* VisitorForm3Controller.swift */,
@@ -317,7 +320,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				07574DAF1B4EB725000FE8CC /* WelcomeScreenController.swift in Sources */,
-				0728661A1B55454100E8CEB1 /* EmployeeVisitorRecord.swift in Sources */,
+				0728661A1B55454100E8CEB1 /* Visitor.swift in Sources */,
+				07079B781B5589B700E18E1B /* AdminPendingTableController.swift in Sources */,
 				070517BF1B540D6C000B41B9 /* EmployeeVisitorDetailController.swift in Sources */,
 				070517BE1B540D6C000B41B9 /* EmployeeLoginController.swift in Sources */,
 				070517BA1B540D08000B41B9 /* VisitorForm1Controller.swift in Sources */,

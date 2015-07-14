@@ -10,7 +10,7 @@ import UIKit
 
 class EmployeeVisitorDetailController: UIViewController {
 	
-	var record = EmployeeVisitorRecord()
+	var record = Visitor()
 	
 	@IBOutlet var imageView: UIImageView!
 	@IBOutlet var nameLabel: UILabel!
