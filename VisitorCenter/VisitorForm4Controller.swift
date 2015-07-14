@@ -39,6 +39,7 @@ class VisitorForm4Controller: UIViewController {
 				
 				let incompleteAlert = UIAlertController(title: "Incomplete", message: "Please sign your request", preferredStyle: .Alert)
 				incompleteAlert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+				presentViewController(incompleteAlert, animated: true, completion: nil)
 				return
 				
 			}

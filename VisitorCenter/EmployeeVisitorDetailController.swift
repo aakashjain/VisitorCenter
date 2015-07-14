@@ -65,7 +65,7 @@ class EmployeeVisitorDetailController: UIViewController {
 			
 		})
 		
-		let picInfoQuery = "select Body from Attachment where ParentId = '\(visitorId)' and Name like '%photo.jpeg'"
+		let picInfoQuery = "select Body from Attachment where Name = '\(self.visitorId)photo.jpeg'"
 		let picInfoRequest = SFRestAPI.sharedInstance().requestForQuery(picInfoQuery)
 		
 		SFRestAPI.sharedInstance().sendRESTRequest(picInfoRequest,
@@ -88,7 +88,7 @@ class EmployeeVisitorDetailController: UIViewController {
 				
 				NSLog("File fetch response: \(response)")
 				dispatch_async(dispatch_get_main_queue(), {
-						self.imageView.image = UIImage(data: data, scale: 1.0)
+					self.imageView.image = UIImage(data: data, scale: 1.0)
 				})
 			}
 		})
@@ -112,4 +112,5 @@ class EmployeeVisitorDetailController: UIViewController {
 	func sendEmail(recognizer: UITapGestureRecognizer) {
 		UIApplication.sharedApplication().openURL(NSURL(string: "mailto://\(self.email)")!)
 	}
+	
 }
