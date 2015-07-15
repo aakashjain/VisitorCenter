@@ -16,7 +16,6 @@ class EmployeeLoginController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
 		SFAuthenticationManager.sharedManager().loginWithCompletion(
 			{ (info) -> Void in
 				self.log(SFLogLevelInfo, msg: "Completed login: \(info)")

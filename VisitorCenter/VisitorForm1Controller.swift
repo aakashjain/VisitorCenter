@@ -36,7 +36,6 @@ class VisitorForm1Controller: UIViewController {
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		self.navigationController?.setNavigationBarHidden(false, animated: true)
-		UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
 	}
 	
 	override func viewWillDisappear(animated: Bool) {

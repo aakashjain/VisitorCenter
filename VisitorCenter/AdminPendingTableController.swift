@@ -30,7 +30,7 @@ class AdminPendingTableController: UITableViewController {
     }
 	
 	func sendRequest() {
-		let pendQuery = "select Id, Date__c, FirstName__c, MiddleName__c, LastName__c, Organization__c, Phone__c, Email__c, Remarks__c, User__r.Name, User__r.Department  from Visitor__c where Status__c = 'Pending' order by Date__c asc"
+		let pendQuery = "select Id, Date__c, FirstName__c, MiddleName__c, LastName__c, Organization__c, Phone__c, Email__c, Remarks__c, IDType__c, IDNumber__c, User__r.Name, User__r.Department  from Visitor__c where Status__c = 'Pending' order by Date__c asc"
 		let pendRequest: SFRestRequest = SFRestAPI.sharedInstance().requestForQuery(pendQuery)
 		SFRestAPI.sharedInstance().sendRESTRequest(pendRequest, failBlock: { (error) -> Void in
 			self.log(SFLogLevelError, msg: "Failed to retrieve records: \(error)")
@@ -47,7 +47,7 @@ class AdminPendingTableController: UITableViewController {
 				self.tableView.reloadData()
 			})
 		}
-		let checkinQuery = "select Id, Date__c, FirstName__c, MiddleName__c, LastName__c, Organization__c, Phone__c, Email__c, Remarks__c, User__r.Name, User__r.Department  from Visitor__c where Status__c = 'Checkedin' order by Date__c asc"
+		let checkinQuery = "select Id, Date__c, FirstName__c, MiddleName__c, LastName__c, Organization__c, Phone__c, Email__c, Remarks__c, IDType__c, IDNumber__c, User__r.Name, User__r.Department  from Visitor__c where Status__c = 'Checkedin' order by Date__c asc"
 		let checkinRequest: SFRestRequest = SFRestAPI.sharedInstance().requestForQuery(checkinQuery)
 		SFRestAPI.sharedInstance().sendRESTRequest(checkinRequest, failBlock: { (error) -> Void in
 			self.log(SFLogLevelError, msg: "Failed to retrieve records: \(error)")
@@ -81,6 +81,8 @@ class AdminPendingTableController: UITableViewController {
 			email: record.objectForKey("Email__c") as! String,
 			org: nullToString(record.objectForKey("Organization__c")),
 			remark: nullToString(record.objectForKey("Remarks__c")),
+			idtype: record.objectForKey("IDType__c") as! String,
+			idnum: record.objectForKey("IDNumber__c") as! String,
 			empName: user.objectForKey("Name") as! String,
 			empDept: nullToString(user.objectForKey("Department")),
 			photoUrl: "", idUrl: "", signUrl: ""
@@ -195,7 +197,20 @@ class AdminPendingTableController: UITableViewController {
 	}
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		
+		if segue.identifier == "AdminDetailSegue" {
+			if let destination = segue.destinationViewController as? AdminDetailController {
+				if let indexPath = self.tableView.indexPathForCell(sender as! UITableViewCell) {
+					if indexPath.section == 0 {
+						destination.status = "Pending"
+						destination.record = self.pendingRows[indexPath.row]
+					} else {
+						destination.status = "Checkedin"
+						destination.record = self.checkinRows[indexPath.row]
+					}
+					destination.presentingRow = indexPath.row
+				}
+			}
+		}
     }
 	
 	@IBAction func logout(sender: AnyObject) {

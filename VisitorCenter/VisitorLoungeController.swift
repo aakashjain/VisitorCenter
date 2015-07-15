@@ -71,7 +71,6 @@ class VisitorLoungeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.client.login(visitorUser, password: visitorPass)
-		UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
     }
 	
 	override func viewWillDisappear(animated: Bool) {

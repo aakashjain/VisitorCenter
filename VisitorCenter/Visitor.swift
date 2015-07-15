@@ -16,6 +16,8 @@ struct Visitor {
 	var email = ""
 	var org = ""
 	var remark = ""
+	var idtype = ""
+	var idnum = ""
 	var empName = ""
 	var empDept = ""
 	var photoUrl = ""

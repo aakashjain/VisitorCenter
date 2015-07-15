@@ -50,7 +50,7 @@ class EmployeeVisitorTableController: UITableViewController {
 					phone: record.objectForKey("Phone__c") as! String,
 					email: record.objectForKey("Phone__c") as! String,
 					org: nullToString(record.objectForKey("Organization__c")),
-					remark: "", empName: "", empDept: "", photoUrl: "", idUrl: "", signUrl: ""
+					remark: "", idtype: "", idnum: "", empName: "", empDept: "", photoUrl: "", idUrl: "", signUrl: ""
 				))
 			}
 			
@@ -61,10 +61,6 @@ class EmployeeVisitorTableController: UITableViewController {
 		})
 	}
 	
-	override func viewWillAppear(animated: Bool) {
-		super.viewWillAppear(animated)
-		UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
-	}
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
