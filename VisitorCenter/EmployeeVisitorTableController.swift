@@ -49,7 +49,8 @@ class EmployeeVisitorTableController: UITableViewController {
 					lname: record.objectForKey("LastName__c") as! String,
 					phone: record.objectForKey("Phone__c") as! String,
 					email: record.objectForKey("Phone__c") as! String,
-					org: record.objectForKey("Organization__c") as! String
+					org: record.objectForKey("Organization__c") as! String,
+					remark: "", empName: "", empDept: "", photoUrl: "", idUrl: "", signUrl: ""
 				))
 			}
 			
