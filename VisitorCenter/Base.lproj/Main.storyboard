@@ -179,6 +179,8 @@
                     <navigationItem key="navigationItem" id="J4Z-EJ-olS">
                         <barButtonItem key="backBarButtonItem" title="Home" id="g6U-Oa-Mxh"/>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -295,6 +297,8 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="button" destination="1PY-xB-svo" id="sEf-eC-Sp3"/>
                         <outlet property="messageLabel" destination="kxB-ZC-EKg" id="uE4-JY-GKF"/>
@@ -579,6 +583,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="date" destination="lqN-dm-YYF" id="yas-fR-eoV"/>
                         <outlet property="email" destination="gbW-kU-Uza" id="CvG-aa-dzp"/>
@@ -642,7 +647,8 @@
                     <navigationItem key="navigationItem" title="You are here to visit..." id="i0f-oV-qgN">
                         <barButtonItem key="backBarButtonItem" title="Back" id="93Z-TX-Tqu"/>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="r8c-W0-fhW" kind="show" identifier="VisitorForm3Segue" id="9As-t4-HPr"/>
                     </connections>
@@ -885,6 +891,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="idNumberField" destination="XwN-W9-6S5" id="mk2-Ma-fNX"/>
                         <outlet property="idPhotoView" destination="8j9-cW-LU1" id="See-y0-oG1"/>
@@ -948,6 +955,8 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <segue destination="whi-Db-4Be" kind="presentation" identifier="VisitorLoungeSegue" id="T8T-8F-eEA"/>
                     </connections>
@@ -1087,6 +1096,8 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome!" id="5W2-x7-uSN"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="button" destination="hH0-gc-eGL" id="BOF-bf-5ai"/>
                         <outlet property="message" destination="MQD-cu-P8j" id="Xi6-OQ-a8o"/>
@@ -1153,6 +1164,8 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <segue destination="MAI-Jg-hBQ" kind="unwind" identifier="EmployeeLogoutUnwind" unwindAction="prepareForUnwindSegue:" id="S12-Og-mH2"/>
                     </connections>
@@ -1374,6 +1387,8 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Visitor Details" id="EpE-3B-Rrx"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="dateLabel" destination="ss7-1g-Qd5" id="vK2-CU-ogY"/>
                         <outlet property="emailLabel" destination="hoV-6Z-Qia" id="h60-lG-5lW"/>
@@ -1531,6 +1546,8 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="button" destination="ipl-Bf-0H7" id="NUH-z9-cKj"/>
                         <outlet property="messageLabel" destination="O21-yk-2s9" id="Y4M-oQ-Fhd"/>
@@ -1579,9 +1596,6 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <segue destination="gIP-LW-yh9" kind="showDetail" id="5CD-OG-NXv"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1597,6 +1611,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <segue destination="zkg-2X-hKH" kind="unwind" identifier="AdminLogoutUnwind" unwindAction="prepareForUnwindSegue:" id="eSY-eM-xaV"/>
                     </connections>
@@ -1754,6 +1769,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uPm-67-R8e" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Twb-8c-GIR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -12,7 +12,7 @@
 		070517BF1B540D6C000B41B9 /* EmployeeVisitorDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070517BC1B540D6C000B41B9 /* EmployeeVisitorDetailController.swift */; };
 		070517C01B540D6C000B41B9 /* EmployeeVisitorTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070517BD1B540D6C000B41B9 /* EmployeeVisitorTableController.swift */; };
 		070517C21B54164F000B41B9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 070517C11B54164F000B41B9 /* MessageUI.framework */; };
-		070517C41B542380000B41B9 /* SFAttachmentHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070517C31B542380000B41B9 /* SFAttachmentHelpers.swift */; };
+		070517C41B542380000B41B9 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070517C31B542380000B41B9 /* Helpers.swift */; };
 		07079B781B5589B700E18E1B /* AdminPendingTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07079B771B5589B700E18E1B /* AdminPendingTableController.swift */; };
 		071BB52E1B4FE13F0018B9E3 /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071BB52D1B4FE13F0018B9E3 /* SwiftSpinner.swift */; };
 		0728661A1B55454100E8CEB1 /* Visitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072866191B55454000E8CEB1 /* Visitor.swift */; };
@@ -47,7 +47,7 @@
 		070517BC1B540D6C000B41B9 /* EmployeeVisitorDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeVisitorDetailController.swift; sourceTree = "<group>"; };
 		070517BD1B540D6C000B41B9 /* EmployeeVisitorTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeVisitorTableController.swift; sourceTree = "<group>"; };
 		070517C11B54164F000B41B9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		070517C31B542380000B41B9 /* SFAttachmentHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFAttachmentHelpers.swift; sourceTree = "<group>"; };
+		070517C31B542380000B41B9 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		07079B771B5589B700E18E1B /* AdminPendingTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminPendingTableController.swift; sourceTree = "<group>"; };
 		071BB52C1B4FE1280018B9E3 /* VisitorCenter-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VisitorCenter-Bridging-Header.h"; sourceTree = "<group>"; };
 		071BB52D1B4FE13F0018B9E3 /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 				07DFAC241B51909A0087F60B /* VisitorForm4Controller.swift */,
 				073D57E81B529D9900D0A7E7 /* VisitorLoungeController.swift */,
 				071BB52C1B4FE1280018B9E3 /* VisitorCenter-Bridging-Header.h */,
-				070517C31B542380000B41B9 /* SFAttachmentHelpers.swift */,
+				070517C31B542380000B41B9 /* Helpers.swift */,
 				071BB52D1B4FE13F0018B9E3 /* SwiftSpinner.swift */,
 				07574DB51B4EB725000FE8CC /* LaunchScreen.xib */,
 				07574DAB1B4EB725000FE8CC /* VisitorCenter.xcdatamodeld */,
@@ -331,7 +331,7 @@
 				07574DAD1B4EB725000FE8CC /* VisitorCenter.xcdatamodeld in Sources */,
 				070517C01B540D6C000B41B9 /* EmployeeVisitorTableController.swift in Sources */,
 				071BB52E1B4FE13F0018B9E3 /* SwiftSpinner.swift in Sources */,
-				070517C41B542380000B41B9 /* SFAttachmentHelpers.swift in Sources */,
+				070517C41B542380000B41B9 /* Helpers.swift in Sources */,
 				07DFAC251B51909B0087F60B /* VisitorForm4Controller.swift in Sources */,
 				073D57E91B529D9900D0A7E7 /* VisitorLoungeController.swift in Sources */,
 				0755710B1B512515000F0F55 /* VisitorForm2Controller.swift in Sources */,

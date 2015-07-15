@@ -45,11 +45,11 @@ class EmployeeVisitorTableController: UITableViewController {
 					date: date,
 					vid: record.objectForKey("Id") as! String,
 					fname: record.objectForKey("FirstName__c") as! String,
-					mname: record.objectForKey("MiddleName__c") as! String,
+					mname: nullToString(record.objectForKey("MiddleName__c")),
 					lname: record.objectForKey("LastName__c") as! String,
 					phone: record.objectForKey("Phone__c") as! String,
 					email: record.objectForKey("Phone__c") as! String,
-					org: record.objectForKey("Organization__c") as! String,
+					org: nullToString(record.objectForKey("Organization__c")),
 					remark: "", empName: "", empDept: "", photoUrl: "", idUrl: "", signUrl: ""
 				))
 			}

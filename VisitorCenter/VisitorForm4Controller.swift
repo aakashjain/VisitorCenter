@@ -67,6 +67,7 @@ class VisitorForm4Controller: UIViewController {
 			visitor.setFieldValue(VisitorForm3Controller.idNumber, field: "IDNumber__c")
 			visitor.setFieldValue(VisitorForm1Controller.date, field: "Date__c")
 			visitor.setFieldValue("Pending", field: "Status__c")
+			visitor.setFieldValue("", field: "Remarks__c")
 			visitor.setFieldValue(VisitorForm2Controller.empId, field: "User__c")
 			let visitorSaveResult = client.create([visitor]) as! [ZKSaveResult]
 			self.visitorId = visitorSaveResult[0].id

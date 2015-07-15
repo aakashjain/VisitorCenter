@@ -41,23 +41,7 @@ class AdminPendingTableController: UITableViewController {
 			let records = result.objectForKey("records") as! NSArray
 			self.pendingRows.removeAll(keepCapacity: false)
 			for record in records {
-				let dateNS = SFDateUtil.SOQLDateTimeStringToDate(record.objectForKey("Date__c") as! String)
-				let date = NSDateFormatter.localizedStringFromDate(dateNS, dateStyle: .ShortStyle, timeStyle: .ShortStyle)
-				let user: AnyObject = record.objectForKey("User__r")!
-				self.pendingRows.append(Visitor(
-					date: date,
-					vid: record.objectForKey("Id") as! String,
-					fname: record.objectForKey("FirstName__c") as! String,
-					mname: record.objectForKey("MiddleName__c") as! String,
-					lname: record.objectForKey("LastName__c") as! String,
-					phone: record.objectForKey("Phone__c") as! String,
-					email: record.objectForKey("Phone__c") as! String,
-					org: record.objectForKey("Organization__c") as! String,
-					remark: record.objectForKey("Remark__c") as! String,
-					empName: user.objectForKey("Name") as! String,
-					empDept: user.objectForKey("Department") as! String,
-					photoUrl: "", idUrl: "", signUrl: ""
-				))
+				self.pendingRows.append(self.makeVisitor(record))
 			}
 			dispatch_async(dispatch_get_main_queue(), {
 				self.tableView.reloadData()
@@ -74,29 +58,33 @@ class AdminPendingTableController: UITableViewController {
 			let records = result.objectForKey("records") as! NSArray
 			self.checkinRows.removeAll(keepCapacity: false)
 			for record in records {
-				let dateNS = SFDateUtil.SOQLDateTimeStringToDate(record.objectForKey("Date__c") as! String)
-				let date = NSDateFormatter.localizedStringFromDate(dateNS, dateStyle: .ShortStyle, timeStyle: .ShortStyle)
-				let user: AnyObject = record.objectForKey("User__r")!
-				self.checkinRows.append(Visitor(
-					date: date,
-					vid: record.objectForKey("Id") as! String,
-					fname: record.objectForKey("FirstName__c") as! String,
-					mname: record.objectForKey("MiddleName__c") as! String,
-					lname: record.objectForKey("LastName__c") as! String,
-					phone: record.objectForKey("Phone__c") as! String,
-					email: record.objectForKey("Phone__c") as! String,
-					org: record.objectForKey("Organization__c") as! String,
-					remark: record.objectForKey("Remark__c") as! String,
-					empName: user.objectForKey("Name") as! String,
-					empDept: user.objectForKey("Department") as! String,
-					photoUrl: "", idUrl: "", signUrl: ""
-				))
+				self.checkinRows.append(self.makeVisitor(record))
 			}
 			dispatch_async(dispatch_get_main_queue(), {
 				self.tableView.reloadData()
 			})
 			self.refreshControl!.endRefreshing()
 		}
+	}
+	
+	func makeVisitor(record: AnyObject) -> Visitor {
+		let dateNS = SFDateUtil.SOQLDateTimeStringToDate(record.objectForKey("Date__c") as! String)
+		let date = NSDateFormatter.localizedStringFromDate(dateNS, dateStyle: .ShortStyle, timeStyle: .ShortStyle)
+		let user: AnyObject = record.objectForKey("User__r")!
+		return Visitor(
+			date: date,
+			vid: record.objectForKey("Id") as! String,
+			fname: record.objectForKey("FirstName__c") as! String,
+			mname: nullToString(record.objectForKey("MiddleName__c")),
+			lname: record.objectForKey("LastName__c") as! String,
+			phone: record.objectForKey("Phone__c") as! String,
+			email: record.objectForKey("Email__c") as! String,
+			org: nullToString(record.objectForKey("Organization__c")),
+			remark: nullToString(record.objectForKey("Remarks__c")),
+			empName: user.objectForKey("Name") as! String,
+			empDept: nullToString(user.objectForKey("Department")),
+			photoUrl: "", idUrl: "", signUrl: ""
+		)
 	}
 
     // MARK: - Table view data source
@@ -120,7 +108,14 @@ class AdminPendingTableController: UITableViewController {
 			return "CHECKED IN VISITORS"
 		}
 	}
-
+	
+	override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		if (section == 0 && self.pendingRows.count == 0) || (section == 1 && self.checkinRows.count == 0) {
+			return 0
+		}
+		return UITableViewAutomaticDimension
+	}
+	
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
 		var data: Visitor
@@ -141,45 +136,48 @@ class AdminPendingTableController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        /*if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }*/
     }
 	
 	override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
 		if indexPath.section == 0 {
 			let accept = UITableViewRowAction(style: .Normal, title: "Accept") { (action, path) -> Void in
+				self.tableView.cellForRowAtIndexPath(indexPath)?.setEditing(false, animated: true)
 				let checkinRequest = SFRestAPI.sharedInstance().requestForUpdateWithObjectType("Visitor__c", objectId: self.pendingRows[path.row].vid, fields: ["Status__c": "Checkedin"])
 				SFRestAPI.sharedInstance().sendRESTRequest(checkinRequest, failBlock: { (error) -> Void in
 					self.failAlert()
 				}, completeBlock: { (response) -> Void in
-					self.checkinRows.append(self.pendingRows[path.row])
-					self.pendingRows.removeAtIndex(path.row)
-					self.tableView.reloadData()
+					dispatch_async(dispatch_get_main_queue(), { () -> Void in
+						self.checkinRows.append(self.pendingRows[indexPath.row])
+						self.pendingRows.removeAtIndex(indexPath.row)
+						self.tableView.reloadData()
+					})
 				})
 			}
-			accept.backgroundColor = UIColor.blueColor()
 			let reject = UITableViewRowAction(style: .Normal, title: "Reject") { (action, path) -> Void in
+				self.tableView.cellForRowAtIndexPath(indexPath)?.setEditing(false, animated: true)
 				let checkinRequest = SFRestAPI.sharedInstance().requestForUpdateWithObjectType("Visitor__c", objectId: self.pendingRows[path.row].vid, fields: ["Status__c": "Rejected"])
 				SFRestAPI.sharedInstance().sendRESTRequest(checkinRequest, failBlock: { (error) -> Void in
 					self.failAlert()
 				}, completeBlock: { (response) -> Void in
-					self.pendingRows.removeAtIndex(path.row)
-					self.tableView.reloadData()
+					dispatch_async(dispatch_get_main_queue(), { () -> Void in
+						self.pendingRows.removeAtIndex(indexPath.row)
+						self.tableView.reloadData()
+					})
 				})
 			}
+			reject.backgroundColor = UIColor.redColor()
 			return [accept, reject]
 		} else {
 			let checkout = UITableViewRowAction(style: .Normal, title: "Checkout") { (action, path) -> Void in
+				self.tableView.cellForRowAtIndexPath(indexPath)?.setEditing(false, animated: true)
 				let checkoutRequest = SFRestAPI.sharedInstance().requestForUpdateWithObjectType("Visitor__c", objectId: self.checkinRows[path.row].vid, fields: ["Status__c": "Checkedout"])
 				SFRestAPI.sharedInstance().sendRESTRequest(checkoutRequest, failBlock: { (error) -> Void in
 					self.failAlert()
 				}, completeBlock: { (response) -> Void in
-					self.checkinRows.removeAtIndex(path.row)
-					self.tableView.reloadData()
+					dispatch_async(dispatch_get_main_queue(), { () -> Void in
+						self.checkinRows.removeAtIndex(indexPath.row)
+						self.tableView.reloadData()
+					})
 				})
 			}
 			return [checkout]
@@ -192,14 +190,6 @@ class AdminPendingTableController: UITableViewController {
 		self.presentViewController(alert, animated: true, completion: nil)
 	}
 	
-	/*override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
-		if indexPath.section == 0 {
-			return "Reject"
-		} else {
-			return "Checkout"
-		}
-	}*/
-
 	override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
 		
 	}

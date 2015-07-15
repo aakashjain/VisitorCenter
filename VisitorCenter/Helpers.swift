@@ -1,5 +1,5 @@
 //
-//  SFAttachmentHelpers.swift
+//  Helpers.swift
 //  VisitorCenter
 //
 //  Created by Aakash on 13/07/15.
@@ -19,4 +19,12 @@ func sfRestRequestForAttachment(bodyUrl: String) -> SFRestRequest {
 	var request = SFRestRequest(method: SFRestMethodGET, path: bodyUrl, queryParams: nil)
 	request.parseResponse = false
 	return request
+}
+
+func nullToString(val: AnyObject?) -> String {
+	if val is NSNull {
+		return ""
+	} else {
+		return val as! String
+	}
 }
