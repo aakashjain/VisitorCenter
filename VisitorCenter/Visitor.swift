@@ -23,4 +23,5 @@ struct Visitor {
 	var photoUrl = ""
 	var idUrl = ""
 	var signUrl = ""
+	var status = ""
 }

@@ -30,7 +30,7 @@ class AdminPendingTableController: UITableViewController {
     }
 	
 	func sendRequest() {
-		let pendQuery = "select Id, Date__c, FirstName__c, MiddleName__c, LastName__c, Organization__c, Phone__c, Email__c, Remarks__c, IDType__c, IDNumber__c, User__r.Name, User__r.Department  from Visitor__c where Status__c = 'Pending' order by Date__c asc"
+		let pendQuery = "select Id, Date__c, FirstName__c, MiddleName__c, LastName__c, Organization__c, Phone__c, Email__c, Remarks__c, IDType__c, IDNumber__c, Status__c, User__r.Name, User__r.Department  from Visitor__c where Status__c = 'Pending' order by Date__c asc"
 		let pendRequest: SFRestRequest = SFRestAPI.sharedInstance().requestForQuery(pendQuery)
 		SFRestAPI.sharedInstance().sendRESTRequest(pendRequest, failBlock: { (error) -> Void in
 			self.log(SFLogLevelError, msg: "Failed to retrieve records: \(error)")
@@ -41,7 +41,7 @@ class AdminPendingTableController: UITableViewController {
 			let records = result.objectForKey("records") as! NSArray
 			self.pendingRows.removeAll(keepCapacity: false)
 			for record in records {
-				self.pendingRows.append(self.makeVisitor(record))
+				self.pendingRows.append(makeVisitor(record))
 			}
 			dispatch_async(dispatch_get_main_queue(), {
 				self.tableView.reloadData()
@@ -58,35 +58,13 @@ class AdminPendingTableController: UITableViewController {
 			let records = result.objectForKey("records") as! NSArray
 			self.checkinRows.removeAll(keepCapacity: false)
 			for record in records {
-				self.checkinRows.append(self.makeVisitor(record))
+				self.checkinRows.append(makeVisitor(record))
 			}
 			dispatch_async(dispatch_get_main_queue(), {
 				self.tableView.reloadData()
 			})
 			self.refreshControl!.endRefreshing()
 		}
-	}
-	
-	func makeVisitor(record: AnyObject) -> Visitor {
-		let dateNS = SFDateUtil.SOQLDateTimeStringToDate(record.objectForKey("Date__c") as! String)
-		let date = NSDateFormatter.localizedStringFromDate(dateNS, dateStyle: .ShortStyle, timeStyle: .ShortStyle)
-		let user: AnyObject = record.objectForKey("User__r")!
-		return Visitor(
-			date: date,
-			vid: record.objectForKey("Id") as! String,
-			fname: record.objectForKey("FirstName__c") as! String,
-			mname: nullToString(record.objectForKey("MiddleName__c")),
-			lname: record.objectForKey("LastName__c") as! String,
-			phone: record.objectForKey("Phone__c") as! String,
-			email: record.objectForKey("Email__c") as! String,
-			org: nullToString(record.objectForKey("Organization__c")),
-			remark: nullToString(record.objectForKey("Remarks__c")),
-			idtype: record.objectForKey("IDType__c") as! String,
-			idnum: record.objectForKey("IDNumber__c") as! String,
-			empName: user.objectForKey("Name") as! String,
-			empDept: nullToString(user.objectForKey("Department")),
-			photoUrl: "", idUrl: "", signUrl: ""
-		)
 	}
 
     // MARK: - Table view data source
@@ -201,10 +179,8 @@ class AdminPendingTableController: UITableViewController {
 			if let destination = segue.destinationViewController as? AdminDetailController {
 				if let indexPath = self.tableView.indexPathForCell(sender as! UITableViewCell) {
 					if indexPath.section == 0 {
-						destination.status = "Pending"
 						destination.record = self.pendingRows[indexPath.row]
 					} else {
-						destination.status = "Checkedin"
 						destination.record = self.checkinRows[indexPath.row]
 					}
 					destination.presentingRow = indexPath.row
