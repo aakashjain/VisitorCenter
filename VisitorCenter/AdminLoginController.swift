@@ -21,7 +21,7 @@ class AdminLoginController: UIViewController {
 				self.log(SFLogLevelInfo, msg: "Completed login: \(info)")
 				
 				let userId = SFAuthenticationManager.sharedManager().idCoordinator.idData.userId
-				let isAdminRequest = SFRestAPI.sharedInstance().requestForQuery("select VisitorCenterApp_IsAdmin__c from User where Id = '\(userId)'")
+				let isAdminRequest = SFRestAPI.sharedInstance().requestForQuery("select VisitorCenterApp_IsAdmin__c, Country from User where Id = '\(userId)'")
 				
 				SFRestAPI.sharedInstance().sendRESTRequest(isAdminRequest,
 					failBlock: { (error) -> Void in
@@ -32,7 +32,8 @@ class AdminLoginController: UIViewController {
 					completeBlock: { (response) -> Void in
 						let records = response.objectForKey("records") as! NSArray
 						let isAdmin = records[0].objectForKey("VisitorCenterApp_IsAdmin__c") as! Bool
-						if isAdmin {
+						let country = records[0].objectForKey("Country") as! String
+						if isAdmin && country == region {
 							self.performSegueWithIdentifier("AdminLoggedinSegue", sender: self)
 						} else {
 							SFAuthenticationManager.sharedManager().logoutAllUsers()

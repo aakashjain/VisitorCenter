@@ -15,18 +15,32 @@ func requestForAttachment(bodyUrl: String) -> NSMutableURLRequest {
 	return request
 }
 
-func sfRestRequestForAttachment(bodyUrl: String) -> SFRestRequest {
-	var request = SFRestRequest(method: SFRestMethodGET, path: bodyUrl, queryParams: nil)
-	request.parseResponse = false
-	return request
-}
-
 func nullToString(val: AnyObject?) -> String {
 	if val is NSNull {
 		return ""
 	} else {
 		return val as! String
 	}
+}
+
+struct Visitor {
+	var date = ""
+	var vid = ""
+	var fname = ""
+	var mname = ""
+	var lname = ""
+	var phone = ""
+	var email = ""
+	var org = ""
+	var remark = ""
+	var idtype = ""
+	var idnum = ""
+	var empName = ""
+	var empDept = ""
+	var photoUrl = ""
+	var idUrl = ""
+	var signUrl = ""
+	var status = ""
 }
 
 func makeVisitor(record: AnyObject) -> Visitor {

@@ -115,9 +115,27 @@
                                     <segue destination="pJL-1k-Pth" kind="show" identifier="VisitorForm1Segue" id="TUj-vL-FCJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15O-Hr-LEL">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="tintColor" red="0.92549019610000005" green="0.98431372549999996" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.92549019610000005" green="0.98431372549999996" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="regionButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="z4N-az-W2O"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lkk-C9-A2E">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="15O-Hr-LEL" secondAttribute="bottom" constant="20" id="1WQ-u6-cbN"/>
                             <constraint firstItem="erx-i5-CWV" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="1iL-DR-Ooa"/>
                             <constraint firstItem="lVC-Md-SQ0" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="6pv-ZX-aUh"/>
                             <constraint firstItem="lVC-Md-SQ0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="83a-bQ-mqY"/>
@@ -128,10 +146,13 @@
                             </constraint>
                             <constraint firstItem="94h-Uo-7fJ" firstAttribute="top" secondItem="erx-i5-CWV" secondAttribute="bottom" constant="8" id="Tg7-x7-VcR"/>
                             <constraint firstItem="K0b-w4-2dw" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="f4h-7i-XEl"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Lkk-C9-A2E" secondAttribute="bottom" constant="20" id="lYy-p6-5wk"/>
                             <constraint firstItem="K0b-w4-2dw" firstAttribute="top" secondItem="dol-aa-tfW" secondAttribute="bottom" constant="8" id="mGQ-AO-UOu">
                                 <variation key="widthClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstItem="dol-aa-tfW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="oZE-pX-hiT"/>
+                            <constraint firstItem="15O-Hr-LEL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="qUZ-C8-opw"/>
+                            <constraint firstItem="Lkk-C9-A2E" firstAttribute="leading" secondItem="15O-Hr-LEL" secondAttribute="trailing" constant="8" id="vCt-lz-pVQ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -140,12 +161,18 @@
                                 <exclude reference="dol-aa-tfW"/>
                                 <exclude reference="94h-Uo-7fJ"/>
                                 <exclude reference="K0b-w4-2dw"/>
+                                <exclude reference="15O-Hr-LEL"/>
+                                <exclude reference="Lkk-C9-A2E"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="1WQ-u6-cbN"/>
+                                <exclude reference="lYy-p6-5wk"/>
+                                <exclude reference="vCt-lz-pVQ"/>
                                 <exclude reference="D7d-NH-zuh"/>
                                 <exclude reference="oZE-pX-hiT"/>
                                 <exclude reference="6pv-ZX-aUh"/>
                                 <exclude reference="83a-bQ-mqY"/>
+                                <exclude reference="qUZ-C8-opw"/>
                                 <exclude reference="A0d-gd-omV"/>
                                 <exclude reference="Tg7-x7-VcR"/>
                                 <exclude reference="f4h-7i-XEl"/>
@@ -161,12 +188,18 @@
                                 <include reference="dol-aa-tfW"/>
                                 <include reference="94h-Uo-7fJ"/>
                                 <include reference="K0b-w4-2dw"/>
+                                <include reference="15O-Hr-LEL"/>
+                                <include reference="Lkk-C9-A2E"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="1WQ-u6-cbN"/>
+                                <include reference="lYy-p6-5wk"/>
+                                <include reference="vCt-lz-pVQ"/>
                                 <include reference="D7d-NH-zuh"/>
                                 <include reference="oZE-pX-hiT"/>
                                 <include reference="6pv-ZX-aUh"/>
                                 <include reference="83a-bQ-mqY"/>
+                                <include reference="qUZ-C8-opw"/>
                                 <include reference="A0d-gd-omV"/>
                                 <include reference="Tg7-x7-VcR"/>
                                 <include reference="f4h-7i-XEl"/>
@@ -181,6 +214,9 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <outlet property="regionLabel" destination="Lkk-C9-A2E" id="fvT-VB-cKs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -228,7 +264,7 @@
                                     <segue destination="1lK-mb-y2S" kind="unwind" unwindAction="prepareForUnwindSegue:" id="88Q-1e-nvs"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are not permitted employee access." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhX-XQ-XxA">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incorrect permissions or region." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhX-XQ-XxA">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="69" id="4TD-rb-cwx"/>
@@ -1482,7 +1518,7 @@
                                     <segue destination="fbs-7Y-9Hk" kind="unwind" unwindAction="prepareForUnwindSegue:" id="Oyt-q7-La9"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are not permitted admin access." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tb-jf-WcW">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incorrect permissions or region." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tb-jf-WcW">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="69" id="Ihw-GY-IDI"/>

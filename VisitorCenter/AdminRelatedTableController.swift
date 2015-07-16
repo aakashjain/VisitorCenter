@@ -23,7 +23,7 @@ class AdminRelatedTableController: UITableViewController {
 		self.refreshControl!.tintColor = UIColor(red: 51/255.0, green: 59/255.0, blue: 61/255.0, alpha: 1.0)
 		self.refreshControl!.beginRefreshing()
 		
-		let query = "select Id, Date__c, FirstName__c, MiddleName__c, LastName__c, Organization__c, Phone__c, Email__c, Remarks__c, IDType__c, IDNumber__c, Status__c, User__r.Name, User__r.Department from Visitor__c where \(AdminRelatedTableController.clause) order by Date__c asc"
+		let query = "select Id, Date__c, FirstName__c, MiddleName__c, LastName__c, Organization__c, Phone__c, Email__c, Remarks__c, IDType__c, IDNumber__c, Status__c, User__r.Name, User__r.Department from Visitor__c where User__r.Country = '\(region)' and \(AdminRelatedTableController.clause) order by Date__c asc"
 		let request = SFRestAPI.sharedInstance().requestForQuery(query)
 		SFRestAPI.sharedInstance().sendRESTRequest(request, failBlock: { (error) -> Void in
 			self.log(SFLogLevelError, msg: "Failed to load: \(error)")

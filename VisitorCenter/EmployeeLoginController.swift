@@ -21,7 +21,7 @@ class EmployeeLoginController: UIViewController {
 				self.log(SFLogLevelInfo, msg: "Completed login: \(info)")
 				
 				let userId = SFAuthenticationManager.sharedManager().idCoordinator.idData.userId
-				let isEmpRequest = SFRestAPI.sharedInstance().requestForQuery("select VisitorCenterApp_IsEmployee__c from User where Id = '\(userId)'")
+				let isEmpRequest = SFRestAPI.sharedInstance().requestForQuery("select VisitorCenterApp_IsEmployee__c, Country from User where Id = '\(userId)'")
 				
 				SFRestAPI.sharedInstance().sendRESTRequest(isEmpRequest,
 					failBlock: { (error) -> Void in
@@ -32,7 +32,8 @@ class EmployeeLoginController: UIViewController {
 					completeBlock: { (response) -> Void in
 						let records = response.objectForKey("records") as! NSArray
 						let isEmp = records[0].objectForKey("VisitorCenterApp_IsEmployee__c") as! Bool
-						if isEmp {
+						let country = records[0].objectForKey("Country") as! String
+						if isEmp && country == region {
 							self.performSegueWithIdentifier("EmployeeLoggedinSegue", sender: self)
 						} else {
 							SFAuthenticationManager.sharedManager().logoutAllUsers()

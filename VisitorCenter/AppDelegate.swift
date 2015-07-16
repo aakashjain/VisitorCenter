@@ -19,6 +19,8 @@ let visitorPass = "guest1234K8sopfoKUJOb9mb0DAcDM1oEd"
 let buttonColor = UIColor(red: 236/255.0, green: 241/255.0, blue: 102/255.0, alpha: 1.0)
 let backColor = UIColor(red: 52/255.0, green: 52/255.0, blue: 62/255.0, alpha: 1.0)
 
+var region = "USA"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

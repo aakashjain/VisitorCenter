@@ -29,9 +29,10 @@ class AdminPendingTableController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
 	
+	let query = "select Id, Date__c, FirstName__c, MiddleName__c, LastName__c, Organization__c, Phone__c, Email__c, Remarks__c, IDType__c, IDNumber__c, Status__c, User__r.Name, User__r.Department  from Visitor__c where User__r.Country = '\(region)' and Status__c = '%@' order by Date__c asc"
+	
 	func sendRequest() {
-		let pendQuery = "select Id, Date__c, FirstName__c, MiddleName__c, LastName__c, Organization__c, Phone__c, Email__c, Remarks__c, IDType__c, IDNumber__c, Status__c, User__r.Name, User__r.Department  from Visitor__c where Status__c = 'Pending' order by Date__c asc"
-		let pendRequest: SFRestRequest = SFRestAPI.sharedInstance().requestForQuery(pendQuery)
+		let pendRequest: SFRestRequest = SFRestAPI.sharedInstance().requestForQuery(String(format: self.query, "Pending"))
 		SFRestAPI.sharedInstance().sendRESTRequest(pendRequest, failBlock: { (error) -> Void in
 			self.log(SFLogLevelError, msg: "Failed to retrieve records: \(error)")
 			dispatch_async(dispatch_get_main_queue(), {
@@ -47,8 +48,8 @@ class AdminPendingTableController: UITableViewController {
 				self.tableView.reloadData()
 			})
 		}
-		let checkinQuery = "select Id, Date__c, FirstName__c, MiddleName__c, LastName__c, Organization__c, Phone__c, Email__c, Remarks__c, IDType__c, IDNumber__c, User__r.Name, User__r.Department  from Visitor__c where Status__c = 'Checkedin' order by Date__c asc"
-		let checkinRequest: SFRestRequest = SFRestAPI.sharedInstance().requestForQuery(checkinQuery)
+		
+		let checkinRequest: SFRestRequest = SFRestAPI.sharedInstance().requestForQuery(String(format: self.query, "Checkedin"))
 		SFRestAPI.sharedInstance().sendRESTRequest(checkinRequest, failBlock: { (error) -> Void in
 			self.log(SFLogLevelError, msg: "Failed to retrieve records: \(error)")
 			dispatch_async(dispatch_get_main_queue(), {
