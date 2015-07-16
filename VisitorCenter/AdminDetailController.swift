@@ -106,18 +106,22 @@ class AdminDetailController: UITableViewController {
 			case 0:
 				AdminRelatedTableController.criteria = "Name"
 				AdminRelatedTableController.clause = "FirstName__c = '\(self.record.fname)' and LastName__c = '\(self.record.lname)'"
+				AdminRelatedTableController.id = self.record.vid
 				self.performSegueWithIdentifier("SearchSegue", sender: self)
 			case 1:
 				AdminRelatedTableController.criteria = "Organization"
 				AdminRelatedTableController.clause = "Organization__c = '\(self.record.org)'"
+				AdminRelatedTableController.id = self.record.vid
 				self.performSegueWithIdentifier("SearchSegue", sender: self)
 			case 2:
 				AdminRelatedTableController.criteria = "Email"
 				AdminRelatedTableController.clause = "Email__c = '\(self.record.email)'"
+				AdminRelatedTableController.id = self.record.vid
 				self.performSegueWithIdentifier("SearchSegue", sender: self)
 			case 3:
 				AdminRelatedTableController.criteria = "Phone no."
 				AdminRelatedTableController.clause = "Phone__c = '\(self.record.phone)'"
+				AdminRelatedTableController.id = self.record.vid
 				self.performSegueWithIdentifier("SearchSegue", sender: self)
 			case 4:
 				ImageViewController.url = self.photoUrl
@@ -130,6 +134,7 @@ class AdminDetailController: UITableViewController {
 			case 2:
 				AdminRelatedTableController.criteria = "Employee"
 				AdminRelatedTableController.clause = "User__r.Name = '\(self.record.empName)' and User__r.Department = '\(self.record.empDept)'"
+				AdminRelatedTableController.id = self.record.vid
 				self.performSegueWithIdentifier("SearchSegue", sender: self)
 			default:
 				break
@@ -139,6 +144,7 @@ class AdminDetailController: UITableViewController {
 			case 0:
 				AdminRelatedTableController.criteria = "ID no. & type"
 				AdminRelatedTableController.clause = "IDNumber__c = '\(self.record.idnum)' and IDType__c = '\(self.record.idtype)'"
+				AdminRelatedTableController.id = self.record.vid
 				self.performSegueWithIdentifier("SearchSegue", sender: self)
 			case 2:
 				ImageViewController.url = self.idUrl

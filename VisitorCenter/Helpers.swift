@@ -81,7 +81,7 @@ func isValidEmail(str: String) -> Bool {
 }
 
 func isValidPhone(str: String) -> Bool {
-	let regex = "\\b\\+?[0-9]{6-11}\\b"
+	let regex = "\\b[0-9]{6,11}\\b"
 	let phoneTest = NSPredicate(format: "SELF MATCHES %@", regex)
 	return phoneTest.evaluateWithObject(str)
 }

@@ -2577,7 +2577,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Remarks (tap to edit)" id="Ptp-AD-GdR">
+                            <tableViewSection headerTitle="Remarks" id="Ptp-AD-GdR">
                                 <cells>
                                     <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="reuseIdentifier" textLabel="Rim-X9-fK1" rowHeight="100" style="IBUITableViewCellStyleDefault" id="RHG-ot-oTi">
                                         <autoresizingMask key="autoresizingMask"/>
