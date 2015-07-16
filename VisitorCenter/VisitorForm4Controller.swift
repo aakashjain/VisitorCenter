@@ -19,15 +19,6 @@ class VisitorForm4Controller: UIViewController {
 		self.view.addSubview(sigView)
     }
 	
-	override func viewWillDisappear(animated: Bool) {
-		VisitorForm2Controller.selected = false
-		VisitorForm3Controller.selectedIndex = 0
-		VisitorForm3Controller.idNumber = ""
-		VisitorForm3Controller.photoSet = false
-		VisitorForm3Controller.idPhotoSet = false
-		super.viewWillDisappear(animated)
-	}
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -96,6 +87,12 @@ class VisitorForm4Controller: UIViewController {
 			client.create([sigAttach, photoAttach, idAttach])
 			
 			client.logout()
+			
+			VisitorForm2Controller.selected = false
+			VisitorForm3Controller.selectedIndex = 0
+			VisitorForm3Controller.idNumber = ""
+			VisitorForm3Controller.photoSet = false
+			VisitorForm3Controller.idPhotoSet = false
 			
 			dispatch_async(dispatch_get_main_queue(), {
 				SwiftSpinner.hide()

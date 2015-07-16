@@ -39,10 +39,8 @@ class EmployeeVisitorTableController: UITableViewController {
 			self.rows.removeAll(keepCapacity: false)
 			
 			for record in records {
-				let dateNS = SFDateUtil.SOQLDateTimeStringToDate(record.objectForKey("Date__c") as! String)
-				let date = NSDateFormatter.localizedStringFromDate(dateNS, dateStyle: .ShortStyle, timeStyle: .ShortStyle)
 				self.rows.append(Visitor(
-					date: date,
+					date: dateToString(record.objectForKey("Date__c") as! String),
 					vid: record.objectForKey("Id") as! String,
 					fname: record.objectForKey("FirstName__c") as! String,
 					mname: nullToString(record.objectForKey("MiddleName__c")),

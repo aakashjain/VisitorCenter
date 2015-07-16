@@ -44,11 +44,9 @@ struct Visitor {
 }
 
 func makeVisitor(record: AnyObject) -> Visitor {
-	let dateNS = SFDateUtil.SOQLDateTimeStringToDate(record.objectForKey("Date__c") as! String)
-	let date = NSDateFormatter.localizedStringFromDate(dateNS, dateStyle: .ShortStyle, timeStyle: .ShortStyle)
 	let user: AnyObject = record.objectForKey("User__r")!
 	return Visitor(
-		date: date,
+		date: dateToString(record.objectForKey("Date__c") as! String),
 		vid: record.objectForKey("Id") as! String,
 		fname: record.objectForKey("FirstName__c") as! String,
 		mname: nullToString(record.objectForKey("MiddleName__c")),
@@ -64,4 +62,14 @@ func makeVisitor(record: AnyObject) -> Visitor {
 		photoUrl: "", idUrl: "", signUrl: "",
 		status: record.objectForKey("Status__c") as! String
 	)
+}
+
+func dateToString(soql: String) -> String {
+	var formatter = NSDateFormatter()
+	if region == "USA" {
+		formatter.setLocalizedDateFormatFromTemplate(usFormat)
+	} else {
+		formatter.setLocalizedDateFormatFromTemplate(gbFormat)
+	}
+	return formatter.stringFromDate(SFDateUtil.SOQLDateTimeStringToDate(soql))
 }
