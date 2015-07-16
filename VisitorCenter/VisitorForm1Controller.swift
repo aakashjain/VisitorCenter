@@ -8,7 +8,7 @@
 
 import UIKit
 
-var visitIntervalHours = 3.0
+var visitIntervalHours = 6.0
 
 class VisitorForm1Controller: UIViewController {
 
@@ -42,7 +42,6 @@ class VisitorForm1Controller: UIViewController {
 		super.viewWillDisappear(animated)
 		
 		if(self.isMovingFromParentViewController()) {
-			VisitorForm2Controller.selected = false
 			VisitorForm3Controller.selectedIndex = 0
 			VisitorForm3Controller.idNumber = ""
 			VisitorForm3Controller.photoSet = false
@@ -61,13 +60,13 @@ class VisitorForm1Controller: UIViewController {
 	
 	@IBAction func nextPressed(sender: AnyObject) {
 		
-		if self.formComplete() {
+		if self.formComplete() && isValidEmail(self.email.text) && isValidPhone(self.phone.text) {
 			
 			self.performSegueWithIdentifier("VisitorForm2Segue", sender: self)
 			
 		} else {
 			
-			var incompleteAlert = UIAlertController(title: "Incomplete", message: "Please fill all mandatory fields", preferredStyle: .Alert)
+			var incompleteAlert = UIAlertController(title: "Invalid", message: "Please fill all mandatory fields correctly", preferredStyle: .Alert)
 			incompleteAlert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
 			presentViewController(incompleteAlert, animated: true, completion: nil)
 		

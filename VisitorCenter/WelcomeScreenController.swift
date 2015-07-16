@@ -32,16 +32,22 @@ class WelcomeScreenController: UIViewController {
 	@IBAction func regionButton(sender: AnyObject) {
 		var alert = UIAlertController(title: "Set Region", message: "", preferredStyle: .Alert)
 		alert.addAction(UIAlertAction(title: "USA", style: .Default, handler: { (action) -> Void in
-			region = "USA"
-			dispatch_async(dispatch_get_main_queue(), {
-				self.regionLabel.text = region
-			})
+			if region != "USA" {
+				region = "USA"
+				dispatch_async(dispatch_get_main_queue(), {
+					self.regionLabel.text = region
+					VisitorForm2Controller.regionChanged = true
+				})
+			}
 		}))
 		alert.addAction(UIAlertAction(title: "UK", style: .Default, handler: { (action) -> Void in
-			region = "UK"
-			dispatch_async(dispatch_get_main_queue(), {
-				self.regionLabel.text = region
-			})
+			if region != "UK" {
+				region = "UK"
+				dispatch_async(dispatch_get_main_queue(), {
+					self.regionLabel.text = region
+					VisitorForm2Controller.regionChanged = true
+				})
+			}
 		}))
 		self.presentViewController(alert, animated: true, completion: nil)
 	}

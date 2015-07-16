@@ -88,7 +88,6 @@ class VisitorForm4Controller: UIViewController {
 			
 			client.logout()
 			
-			VisitorForm2Controller.selected = false
 			VisitorForm3Controller.selectedIndex = 0
 			VisitorForm3Controller.idNumber = ""
 			VisitorForm3Controller.photoSet = false

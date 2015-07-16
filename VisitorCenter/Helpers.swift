@@ -73,3 +73,15 @@ func dateToString(soql: String) -> String {
 	}
 	return formatter.stringFromDate(SFDateUtil.SOQLDateTimeStringToDate(soql))
 }
+
+func isValidEmail(str: String) -> Bool {
+	let regex = "[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}"
+	let emailTest = NSPredicate(format: "SELF MATCHES %@", regex)
+	return emailTest.evaluateWithObject(str);
+}
+
+func isValidPhone(str: String) -> Bool {
+	let regex = "\\b\\+?[0-9]{6-11}\\b"
+	let phoneTest = NSPredicate(format: "SELF MATCHES %@", regex)
+	return phoneTest.evaluateWithObject(str)
+}
