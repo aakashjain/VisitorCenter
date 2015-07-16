@@ -27,10 +27,14 @@ class VisitorForm2Controller: UITableViewController, UISearchResultsUpdating, UI
 		self.searcher.dimsBackgroundDuringPresentation = false
 		self.searcher.searchBar.scopeButtonTitles = ["Name", "Department"]
 		self.searcher.searchBar.sizeToFit()
-		self.tableView.tableHeaderView = self.searcher.searchBar
 		
 		if VisitorForm2Controller.rowData.count == 0 || VisitorForm2Controller.regionChanged {
-			SwiftSpinner.show("Loading...")
+            
+            self.refreshControl = UIRefreshControl()
+            dispatch_async(dispatch_get_main_queue(), {
+                self.refreshControl!.beginRefreshing()
+            })
+            
 			VisitorForm2Controller.regionChanged = false
 			VisitorForm2Controller.rowData.removeAll(keepCapacity: false)
 			
@@ -47,18 +51,12 @@ class VisitorForm2Controller: UITableViewController, UISearchResultsUpdating, UI
 				
 				dispatch_async(dispatch_get_main_queue(), {
 					self.tableView.reloadData()
-					SwiftSpinner.hide()
+                    self.tableView.tableHeaderView = self.searcher.searchBar
+					self.refreshControl!.endRefreshing()
+                    self.refreshControl = nil
 				})
 			})
 		}
-    }
-	
-	override func viewWillAppear(animated: Bool) {
-		super.viewWillAppear(animated)
-	}
-	
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 
     // MARK: - Table view data source

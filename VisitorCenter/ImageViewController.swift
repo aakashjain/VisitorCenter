@@ -28,8 +28,4 @@ class ImageViewController: UIViewController {
 		}
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
 }

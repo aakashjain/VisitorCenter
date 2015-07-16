@@ -63,10 +63,6 @@ class EmployeeVisitorDetailController: UIViewController {
 			}
 		)
 	}
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 	
 	func makeCall(recognizer: UITapGestureRecognizer) {
 		if UIDevice.currentDevice().model == "iPhone" {

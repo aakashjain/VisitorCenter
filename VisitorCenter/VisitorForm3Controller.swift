@@ -30,9 +30,7 @@ class VisitorForm3Controller: UIViewController, UIImagePickerControllerDelegate,
 		
 		var infoAlert = UIAlertController(title: "ID Photo", message: "Please capture a photo of the selected ID", preferredStyle: .Alert)
 		infoAlert.addAction(UIAlertAction(title: "OK", style: .Cancel) { (action) -> Void in
-			
 			self.presentViewController(self.idPhotoPicker, animated: true, completion: nil)
-			
 		})
 		presentViewController(infoAlert, animated: true, completion: nil)
 		
@@ -42,9 +40,7 @@ class VisitorForm3Controller: UIViewController, UIImagePickerControllerDelegate,
 		
 		var infoAlert = UIAlertController(title: "Your Photo", message: "Please capture a photo of your face", preferredStyle: .Alert)
 		infoAlert.addAction(UIAlertAction(title: "OK", style: .Cancel) { (action) -> Void in
-			
 			self.presentViewController(self.photoPicker, animated: true, completion: nil)
-		
 		})
 		presentViewController(infoAlert, animated: true, completion: nil)
 		
@@ -67,7 +63,6 @@ class VisitorForm3Controller: UIViewController, UIImagePickerControllerDelegate,
 			VisitorForm3Controller.photoSet = true
 			
 		}
-		
 		picker.dismissViewControllerAnimated(true, completion: nil)
 	}
 	
@@ -128,10 +123,6 @@ class VisitorForm3Controller: UIViewController, UIImagePickerControllerDelegate,
 			VisitorForm3Controller.photo = self.photoView.image!
 		}
 	}
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 	
 	// MARK: - UIPickerView
 	

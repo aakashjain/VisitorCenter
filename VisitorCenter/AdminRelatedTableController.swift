@@ -38,12 +38,9 @@ class AdminRelatedTableController: UITableViewController {
 			dispatch_async(dispatch_get_main_queue(), {
 				self.tableView.reloadData()
 				self.refreshControl!.endRefreshing()
+                self.refreshControl = nil
 			})
 		}
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 
     // MARK: - Table view data source

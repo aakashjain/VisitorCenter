@@ -21,10 +21,6 @@ class WelcomeScreenController: UIViewController {
 		super.viewWillAppear(animated)
 		self.navigationController?.setNavigationBarHidden(true, animated: false)
 	}
-
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-	}
 	
 	@IBAction func prepareForUnwindSegue(segue: UIStoryboardSegue) {
 	}

@@ -60,10 +60,6 @@ class EmployeeVisitorTableController: UITableViewController {
 			})
 		})
 	}
-	
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 
     // MARK: - Table view data source
 

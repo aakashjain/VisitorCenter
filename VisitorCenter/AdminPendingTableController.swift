@@ -21,12 +21,10 @@ class AdminPendingTableController: UITableViewController {
 		self.refreshControl!.backgroundColor = UIColor(red: 51/255.0, green: 59/255.0, blue: 61/255.0, alpha: 1.0)
 		self.refreshControl!.tintColor = UIColor(red: 51/255.0, green: 59/255.0, blue: 61/255.0, alpha: 1.0)
 		self.refreshControl!.addTarget(self, action: "sendRequest", forControlEvents: .ValueChanged)
-		self.refreshControl!.beginRefreshing()
+        dispatch_async(dispatch_get_main_queue(), {
+            self.refreshControl!.beginRefreshing()
+        })
 		self.sendRequest()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 	
 	let query = "select Id, Date__c, FirstName__c, MiddleName__c, LastName__c, Organization__c, Phone__c, Email__c, Remarks__c, IDType__c, IDNumber__c, Status__c, User__r.Name, User__r.Department  from Visitor__c where User__r.Country = '\(region)' and Status__c = '%@' order by Date__c asc"
@@ -169,10 +167,6 @@ class AdminPendingTableController: UITableViewController {
 		let alert = UIAlertController(title: "Failed!", message: "Please try again", preferredStyle: .Alert)
 		alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
 		self.presentViewController(alert, animated: true, completion: nil)
-	}
-	
-	override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-		
 	}
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

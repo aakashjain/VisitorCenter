@@ -19,23 +19,15 @@ class VisitorForm4Controller: UIViewController {
 		self.view.addSubview(sigView)
     }
 	
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-	
 	@IBAction func finishPressed(sender: AnyObject) {
 		if let sig = self.view.viewWithTag(1337) as? SignatureView {
-			
 			if !sig.isSigned() {
-				
 				let incompleteAlert = UIAlertController(title: "Incomplete", message: "Please sign your request", preferredStyle: .Alert)
 				incompleteAlert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
 				presentViewController(incompleteAlert, animated: true, completion: nil)
 				return
-				
 			}
 		}
-		
 		registerVisitor()
 	}
 	
@@ -85,7 +77,6 @@ class VisitorForm4Controller: UIViewController {
 			idAttach.setFieldValue(id64, field: "Body")
 				
 			client.create([sigAttach, photoAttach, idAttach])
-			
 			client.logout()
 			
 			VisitorForm3Controller.selectedIndex = 0

@@ -17,39 +17,38 @@ class AdminLoginController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		SFAuthenticationManager.sharedManager().loginWithCompletion(
-			{ (info) -> Void in
-				self.log(SFLogLevelInfo, msg: "Completed login: \(info)")
+        { (info) -> Void in
+			self.log(SFLogLevelInfo, msg: "Completed login: \(info)")
+			
+			let userId = SFAuthenticationManager.sharedManager().idCoordinator.idData.userId
+			let isAdminRequest = SFRestAPI.sharedInstance().requestForQuery("select VisitorCenterApp_IsAdmin__c, Country from User where Id = '\(userId)'")
 				
-				let userId = SFAuthenticationManager.sharedManager().idCoordinator.idData.userId
-				let isAdminRequest = SFRestAPI.sharedInstance().requestForQuery("select VisitorCenterApp_IsAdmin__c, Country from User where Id = '\(userId)'")
-				
-				SFRestAPI.sharedInstance().sendRESTRequest(isAdminRequest,
-					failBlock: { (error) -> Void in
-						self.log(SFLogLevelError, msg: "Failed to fetch IsAdmin: \(error)")
-						SFAuthenticationManager.sharedManager().logoutAllUsers()
-						self.allowExit()
-					},
-					completeBlock: { (response) -> Void in
-						let records = response.objectForKey("records") as! NSArray
-						let isAdmin = records[0].objectForKey("VisitorCenterApp_IsAdmin__c") as! Bool
-						let country = records[0].objectForKey("Country") as! String
-						if isAdmin && country == region {
-							self.performSegueWithIdentifier("AdminLoggedinSegue", sender: self)
-						} else {
-							SFAuthenticationManager.sharedManager().logoutAllUsers()
-							dispatch_async(dispatch_get_main_queue(), {
-								self.subLabel.hidden = false
-							})
-							self.allowExit()
-						}
-				})
-				
-			},
-			failure: { (info, err) -> Void in
-				self.log(SFLogLevelError, msg: "Failed login: ERR: \(err) INFO: \(info)")
+			SFRestAPI.sharedInstance().sendRESTRequest(isAdminRequest,
+			failBlock: { (error) -> Void in
+				self.log(SFLogLevelError, msg: "Failed to fetch IsAdmin: \(error)")
+				SFAuthenticationManager.sharedManager().logoutAllUsers()
 				self.allowExit()
-			}
-		)
+			},
+			completeBlock: { (response) -> Void in
+				let records = response.objectForKey("records") as! NSArray
+				let isAdmin = records[0].objectForKey("VisitorCenterApp_IsAdmin__c") as! Bool
+				let country = records[0].objectForKey("Country") as! String
+				if isAdmin && country == region {
+					self.performSegueWithIdentifier("AdminLoggedinSegue", sender: self)
+				} else {
+					SFAuthenticationManager.sharedManager().logoutAllUsers()
+					dispatch_async(dispatch_get_main_queue(), {
+						self.subLabel.hidden = false
+					})
+					self.allowExit()
+				}
+            })
+				
+        },
+		failure: { (info, err) -> Void in
+			self.log(SFLogLevelError, msg: "Failed login: ERR: \(err) INFO: \(info)")
+			self.allowExit()
+        })
 	}
 	
 	func allowExit() {
@@ -59,9 +58,5 @@ class AdminLoginController: UIViewController {
 			self.button.hidden = false
 		})
 	}
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 
 }

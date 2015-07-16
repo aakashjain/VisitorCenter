@@ -28,10 +28,6 @@ class VisitorForm1Controller: UIViewController {
 		self.date.minimumDate = NSDate()
 		self.date.maximumDate = NSDate(timeIntervalSinceNow: 3600 * visitIntervalHours)
 	}
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
@@ -59,22 +55,17 @@ class VisitorForm1Controller: UIViewController {
     // MARK: - Navigation
 	
 	@IBAction func nextPressed(sender: AnyObject) {
-		
-		if self.formComplete() && isValidEmail(self.email.text) && isValidPhone(self.phone.text) {
-			
+		if self.formComplete() {
 			self.performSegueWithIdentifier("VisitorForm2Segue", sender: self)
-			
 		} else {
-			
 			var incompleteAlert = UIAlertController(title: "Invalid", message: "Please fill all mandatory fields correctly", preferredStyle: .Alert)
 			incompleteAlert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
 			presentViewController(incompleteAlert, animated: true, completion: nil)
-		
 		}
 	}
 	
 	func formComplete() -> Bool {
-		return !(self.firstName.text == "" || self.lastName.text == "" || self.phone.text == "" || self.email.text == "")
+		return !(self.firstName.text == "" || self.lastName.text == "" || self.phone.text == "" || self.email.text == "") && isValidEmail(self.email.text) && isValidPhone(self.phone.text)
 	}
 
 }

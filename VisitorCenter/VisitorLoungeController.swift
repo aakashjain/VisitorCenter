@@ -78,8 +78,4 @@ class VisitorLoungeController: UIViewController {
 		super.viewWillDisappear(animated)
 	}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
 }

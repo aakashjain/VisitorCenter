@@ -60,8 +60,4 @@ class EmployeeLoginController: UIViewController {
 		})
 	}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
 }
