@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VisitorForm3Controller: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class VisitorForm3Controller: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 	
 	static var selectedIndex = 0
 	static var idType = ""
@@ -86,7 +86,8 @@ class VisitorForm3Controller: UIViewController, UIImagePickerControllerDelegate,
 		
 		self.idTypePicker.selectRow(VisitorForm3Controller.selectedIndex, inComponent: 0, animated: false)
 		self.idNumberField.text = VisitorForm3Controller.idNumber
-		
+		self.idNumberField.delegate = self
+        
 		if VisitorForm3Controller.idPhotoSet {
 			self.idPhotoView.contentMode = .ScaleAspectFit
 			self.idPhotoView.image = VisitorForm3Controller.idPhoto
@@ -108,6 +109,10 @@ class VisitorForm3Controller: UIViewController, UIImagePickerControllerDelegate,
 			self.photoPicker.sourceType = .PhotoLibrary
 			self.idPhotoPicker.sourceType = .PhotoLibrary
 		}
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
     }
 	
 	override func viewWillDisappear(animated: Bool) {

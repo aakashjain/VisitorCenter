@@ -30,8 +30,8 @@ class VisitorForm2Controller: UITableViewController, UISearchResultsUpdating, UI
 		
 		if VisitorForm2Controller.rowData.count == 0 || VisitorForm2Controller.regionChanged {
             
-            self.refreshControl = UIRefreshControl()
             dispatch_async(dispatch_get_main_queue(), {
+                self.refreshControl = UIRefreshControl()
                 self.refreshControl!.beginRefreshing()
             })
             

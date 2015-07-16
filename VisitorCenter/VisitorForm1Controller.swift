@@ -10,7 +10,7 @@ import UIKit
 
 var visitIntervalHours = 6.0
 
-class VisitorForm1Controller: UIViewController {
+class VisitorForm1Controller: UIViewController, UITextFieldDelegate {
 
 	@IBOutlet var firstName: UITextField!
 	@IBOutlet var middleName: UITextField!
@@ -27,7 +27,17 @@ class VisitorForm1Controller: UIViewController {
         super.viewDidLoad()
 		self.date.minimumDate = NSDate()
 		self.date.maximumDate = NSDate(timeIntervalSinceNow: 3600 * visitIntervalHours)
+        self.firstName.delegate = self
+        self.middleName.delegate = self
+        self.lastName.delegate = self
+        self.phone.delegate = self
+        self.email.delegate = self
+        self.organization.delegate = self
 	}
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
