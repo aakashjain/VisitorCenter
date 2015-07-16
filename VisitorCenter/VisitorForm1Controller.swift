@@ -38,6 +38,11 @@ class VisitorForm1Controller: UIViewController, UITextFieldDelegate {
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)

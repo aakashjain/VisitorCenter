@@ -29,10 +29,8 @@ class VisitorForm2Controller: UITableViewController, UISearchResultsUpdating, UI
 		self.searcher.searchBar.sizeToFit()
 		
 		if VisitorForm2Controller.rowData.count == 0 || VisitorForm2Controller.regionChanged {
-            
             dispatch_async(dispatch_get_main_queue(), {
-                self.refreshControl = UIRefreshControl()
-                self.refreshControl!.beginRefreshing()
+              SwiftSpinner.show("Loading...")  
             })
             
 			VisitorForm2Controller.regionChanged = false
@@ -52,8 +50,7 @@ class VisitorForm2Controller: UITableViewController, UISearchResultsUpdating, UI
 				dispatch_async(dispatch_get_main_queue(), {
 					self.tableView.reloadData()
                     self.tableView.tableHeaderView = self.searcher.searchBar
-					self.refreshControl!.endRefreshing()
-                    self.refreshControl = nil
+					SwiftSpinner.hide()
 				})
 			})
 		}

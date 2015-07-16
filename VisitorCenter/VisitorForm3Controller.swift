@@ -114,6 +114,11 @@ class VisitorForm3Controller: UIViewController, UIImagePickerControllerDelegate,
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 	
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
