@@ -163,15 +163,15 @@ class AdminDetailController: UITableViewController {
 				SFRestAPI.sharedInstance().sendRESTRequest(request, failBlock: { (error) -> Void in
 					self.log(SFLogLevelError, msg: "Failed to update remark: \(error)")
 				}, completeBlock: { (response) -> Void in
+                    self.record.remark = remark
 					dispatch_async(dispatch_get_main_queue(), {
-						self.record.remark = remark
-						self.tableView.cellForRowAtIndexPath(indexPath)?.textLabel!.text = remark
-						if self.record.status == "Pending" {
-							(self.navigationController?.viewControllers[0] as! AdminPendingTableController).pendingRows[self.presentingRow].remark = remark
-						} else {
-							(self.navigationController?.viewControllers[0] as! AdminPendingTableController).checkinRows[self.presentingRow].remark = remark
-						}
+						self.tableView.reloadData()
 					})
+                    if self.record.status == "Pending" {
+                        (self.navigationController?.viewControllers[0] as! AdminPendingTableController).pendingRows[self.presentingRow].remark = remark
+                    } else {
+                        (self.navigationController?.viewControllers[0] as! AdminPendingTableController).checkinRows[self.presentingRow].remark = remark
+                    }
 				})
 			}))
 			box.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))

@@ -54,6 +54,20 @@ class AdminRelatedTableController: UITableViewController {
 	}
 
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.rows.count == 0 {
+            var messageLabel = UILabel(frame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height))
+            messageLabel.text = "No matches found."
+            messageLabel.textColor = UIColor.lightGrayColor()
+            messageLabel.numberOfLines = 0
+            messageLabel.textAlignment = .Center
+            messageLabel.font = UIFont(name: "HelveticaNeue-Light", size: 20)
+            messageLabel.sizeToFit()
+            self.tableView.backgroundView = messageLabel
+            self.tableView.separatorStyle  = .None
+        } else {
+            self.tableView.backgroundView = nil
+            self.tableView.separatorStyle = .SingleLine
+        }
         return self.rows.count
     }
 
