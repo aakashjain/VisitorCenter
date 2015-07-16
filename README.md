@@ -1,5 +1,6 @@
 # VisitorCenter
-Native iOS app for a company's visitor registration process using Salesforce
+Native iOS app for a company's visitor registration process using Salesforce  
+**Note:** Always open using the workspace file, not the project file.
 
 ##Salesforce Org setup
 
